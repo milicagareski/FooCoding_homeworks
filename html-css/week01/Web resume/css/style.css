@@ -1,0 +1,192 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: rgb(199, 194, 194);
+}
+
+/* container */
+
+.container {
+  margin: 3rem auto;
+  max-width: 850px;
+  border: 5px solid rgb(141, 141, 199);
+  border-radius: 5px;
+  background: url(/img/background-image.jpg) fixed center/cover no-repeat;
+}
+
+/* links */
+
+.link {
+  text-decoration: none;
+  color: rgba(7, 7, 230, 0.884);
+}
+
+.link:hover {
+  color: rgba(0, 0, 0, 0.589);
+}
+
+/* main content */
+
+.main-content {
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  gap: 1rem;
+  border-bottom: 3px solid rgb(141, 141, 199);
+}
+
+/* aside */
+
+aside {
+  display: inline-block;
+  border-right: 3px solid rgb(141, 141, 199);
+}
+#img-container img {
+  width: 250px;
+  height: 260px;
+  box-sizing: border-box;
+  border: 3px solid rgb(141, 141, 199);
+  border-radius: 8px;
+  padding: 5px;
+  margin: 15px auto 0 auto;
+  background-color: rgb(195, 195, 218);
+}
+#info-container {
+  padding: 0 40px;
+}
+.personal-info {
+  margin: 40px 0;
+}
+.about-address {
+  margin-top: 0;
+}
+.personal-info h2 {
+  color: rgb(123, 123, 228);
+  text-transform: uppercase;
+  font-weight: 20px;
+}
+.personal-info h4 {
+  font-size: 20px;
+  font-style: italic;
+  margin: 0;
+  color: rgba(0, 0, 0, 0.589);
+}
+.personal-info p,
+address {
+  color: rgba(0, 0, 0, 0.589);
+  font-style: italic;
+  margin: 0;
+  padding: 0;
+}
+.phone {
+  display: flex;
+  flex-direction: row;
+}
+.phone p {
+  margin-left: 10px;
+}
+#phone {
+  color: rgba(7, 7, 230, 0.884);
+}
+.info {
+  margin: 20px 0;
+}
+#mail {
+  color: rgba(7, 7, 230, 0.884);
+  text-decoration: none;
+}
+#email-icon {
+  color: rgba(7, 7, 230, 0.884);
+}
+.list-info {
+  list-style-type: none;
+}
+.languages {
+  padding: 0;
+}
+.personality {
+  padding: 0;
+}
+.languages li,
+.personality li {
+  text-transform: capitalize;
+  color: rgba(0, 0, 0, 0.589);
+  list-style-type: none;
+}
+.languages li {
+  font-weight: bold;
+  font-size: 20px;
+}
+.dot {
+  height: 13px;
+  width: 13px;
+  background-color: rgb(123, 123, 228);
+  border-radius: 50%;
+  display: inline-block;
+}
+.empty {
+  background-color: transparent;
+  border: 1px solid rgb(123, 123, 228);
+}
+.personality li {
+  font-style: italic;
+}
+
+/* main */
+
+main {
+  display: inline-block;
+}
+.about {
+  padding: 0 30px;
+}
+.about h1,
+.about h2,
+footer h4 {
+  color: rgb(123, 123, 228);
+  text-transform: uppercase;
+}
+.about h2 {
+  margin-bottom: 20px;
+}
+.about h1,
+footer h4 {
+  font-size: 30px;
+  margin-bottom: 35px;
+}
+.about p {
+  color: rgba(0, 0, 0, 0.589);
+  font-style: italic;
+  text-align: justify;
+}
+.about-info {
+  margin-bottom: 35px;
+}
+.education {
+  margin-bottom: 40px;
+}
+.learning-strategies-list {
+  padding: 0;
+}
+.learning-strategies-list li {
+  list-style-type: none;
+}
+
+/* footer */
+
+footer {
+  font-size: 40px;
+  align-items: center;
+  text-align: center;
+}
+.contact-list {
+  padding: 0;
+}
+.contact-list li {
+  list-style-type: none;
+  display: inline-block;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
+}
