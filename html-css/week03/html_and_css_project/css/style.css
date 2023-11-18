@@ -195,7 +195,7 @@ main {
 }
 
 .headerImage {
-  background: url(/img/back-img.jpg) center no-repeat;
+  background: url(../img/back-img.jpg) center no-repeat;
   background-size: cover;
   background-position: top;
   min-height: 24rem;
