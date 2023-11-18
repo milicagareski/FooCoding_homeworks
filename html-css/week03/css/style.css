@@ -616,6 +616,9 @@ footer .column ul li a:hover {
   background-color: #01689b;
   cursor: pointer;
 }
+.languages__wrapper ul li a:hover {
+  color: black;
+}
 /* end of languages */
 
 /* media queries */
@@ -640,7 +643,7 @@ footer .column ul li a:hover {
     justify-content: space-between;
   }
   .fourItems ul li {
-    max-width: 30%;
+    max-width: 40%;
     margin: 0 1rem;
   }
 
@@ -770,10 +773,9 @@ footer .column ul li a:hover {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content;
   }
   .fourItems ul li {
-    max-width: 20%;
+    max-width: 40%;
     margin: 0 1rem;
   }
 
@@ -807,6 +809,9 @@ footer .column ul li a:hover {
   #navBar .breadCrumbNav a {
     position: static;
   }
+  .fourItems ul li {
+    max-width: 25%;
+  }
   .brick {
     max-width: 25vw;
   }
@@ -836,14 +841,6 @@ footer .column ul li a:hover {
 @media screen and (min-width: 1200px) {
   #navBar .breadCrumbNav a {
     margin-left: -6.5em;
-  }
-
-  .fourItems ul {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-items: center;
-    justify-content: center;
   }
 
   .topTaskNavigation {
