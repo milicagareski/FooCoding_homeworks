@@ -195,7 +195,8 @@ main {
 }
 
 .headerImage {
-  background: url(../img/back-img.jpg) center no-repeat;
+  background: url(https://www.rijksoverheid.nl/binaries/widescreen/content/gallery/rijksoverheid/attentie-afbeeldingen/onderwerpen/v/verkiezingen/verkiezing-tweede-kamer-2023-vrouw-met-stempotlood-hero-2.jpg)
+    center no-repeat;
   background-size: cover;
   background-position: top;
   min-height: 24rem;
