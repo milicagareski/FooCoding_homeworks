@@ -68,8 +68,12 @@ header {
   margin-bottom: -30px;
   padding: 1.5rem;
   position: relative;
-  right: 8.5rem;
+  right: 13rem;
   top: 1rem;
+}
+
+#navBar .breadCrumbNav a {
+  margin-left: 9rem;
 }
 
 #navBar .breadCrumbNav:hover {
@@ -158,10 +162,10 @@ header {
 
 #search-form .text-zoeken {
   display: none;
-  /* font-size: 1rem;
+  font-size: 1rem;
   text-align: center;
   background-color: black;
-  color: white; */
+  color: white;
 }
 
 #search-submit:hover {
@@ -174,10 +178,9 @@ header {
   color: white;
 }
 
-/* #search-submit:hover .text-zoeken {
-  display: flex;
-  z-index: 1000;
-} */
+#search-submit:hover .text-zoeken {
+  display: block;
+}
 
 #topMenu,
 #input__btn {
@@ -626,6 +629,10 @@ footer .column ul li a:hover {
     width: 3rem;
   }
 
+  #navBar .breadCrumbNav a {
+    margin-left: 8.5rem;
+  }
+
   .fourItems ul {
     display: flex;
     flex-direction: row;
@@ -633,7 +640,7 @@ footer .column ul li a:hover {
     justify-content: space-between;
   }
   .fourItems ul li {
-    max-width: 25%;
+    max-width: 30%;
     margin: 0 1rem;
   }
 
@@ -698,6 +705,9 @@ footer .column ul li a:hover {
     height: 4rem;
   }
 
+  #navBar .breadCrumbNav a {
+    margin-left: 6rem;
+  }
   #navBar .wrapper {
     display: flex;
     flex-direction: column;
@@ -756,6 +766,17 @@ footer .column ul li a:hover {
     left: 3rem;
   }
 
+  .fourItems ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content;
+  }
+  .fourItems ul li {
+    max-width: 20%;
+    margin: 0 1rem;
+  }
+
   .nieuws h3 {
     font-size: 1.5rem;
   }
@@ -783,6 +804,9 @@ footer .column ul li a:hover {
 }
 
 @media screen and (min-width: 920px) {
+  #navBar .breadCrumbNav a {
+    position: static;
+  }
   .brick {
     max-width: 25vw;
   }
@@ -810,6 +834,10 @@ footer .column ul li a:hover {
 /* end of media queries */
 
 @media screen and (min-width: 1200px) {
+  #navBar .breadCrumbNav a {
+    margin-left: -6.5em;
+  }
+
   .fourItems ul {
     display: flex;
     flex-direction: row;
@@ -819,7 +847,7 @@ footer .column ul li a:hover {
   }
 
   .topTaskNavigation {
-    margin-left: -20rem;
+    margin-left: -26rem;
   }
 
   #search-form {
