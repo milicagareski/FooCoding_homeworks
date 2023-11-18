@@ -373,7 +373,6 @@ main {
   justify-content: start;
   border-top: 1px solid #e1e1e1;
   margin: 0 auto;
-  max-width: 80vw;
 }
 .nieuws .publDate {
   color: black;
@@ -710,8 +709,6 @@ footer .column ul li a:hover {
     margin: -2rem auto;
   }
 
-  .topTaskNavigation {
-  }
   #navBar .breadCrumbNav {
     margin-left: -2.5rem;
     margin-bottom: 0px;
@@ -730,6 +727,7 @@ footer .column ul li a:hover {
     flex-direction: row;
     align-items: end;
     justify-content: flex-end;
+    margin-left: 15rem;
   }
 
   #navBar #topMenu li {
@@ -758,10 +756,6 @@ footer .column ul li a:hover {
     left: 3rem;
   }
 
-  .nieuws {
-    max-width: 70vw;
-  }
-
   .nieuws h3 {
     font-size: 1.5rem;
   }
@@ -774,13 +768,13 @@ footer .column ul li a:hover {
   }
 
   footer .wrapper {
-    max-width: 80vw;
+    max-width: 70vw;
     margin: auto;
     justify-content: center;
   }
 
   footer .payoff {
-    margin-left: 10rem;
+    margin-left: 15rem;
   }
 
   .services {
@@ -808,6 +802,9 @@ footer .column ul li a:hover {
   .nieuws .brick {
     max-width: 20vw;
   }
+  .nieuws {
+    max-width: 80vw;
+  }
 }
 
 /* end of media queries */
@@ -828,6 +825,9 @@ footer .column ul li a:hover {
   #search-form {
     margin-right: -10rem;
   }
+  .nieuws {
+    max-width: 70vw;
+  }
   .fourItems ul li {
     max-width: 20%;
     margin-right: 1rem;
@@ -838,7 +838,6 @@ footer .column ul li a:hover {
   }
 
   .languages__wrapper {
-    max-width: 80vw;
-    margin: 0 auto;
+    padding: 0 15rem;
   }
 }
