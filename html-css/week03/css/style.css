@@ -1,8 +1,18 @@
+@font-face {
+  font-family: myFont;
+  src: url(/fonts/calibril.ttf);
+}
+
+@font-face {
+  font-family: secondFont;
+  src: url(/fonts/RopaSans-Regular.ttf);
+}
+
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, Verdana, sans-serif;
+  font-family: myFont, secondFont, Arial, Verdana, sans-serif;
   color: black;
   font-size: 16px;
 }
@@ -116,6 +126,7 @@ header {
 #navBar #topMenu li a {
   color: white;
   text-decoration: none;
+  font-family: secondFont;
 }
 
 #navBar #topMenu li:last-child {
