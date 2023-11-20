@@ -6,17 +6,12 @@ body {
   background-color: rgb(199, 194, 194);
 }
 
-/* container */
-
 .container {
   margin: 3rem auto;
-  max-width: 850px;
+  max-width: 53rem;
   border: 5px solid rgb(141, 141, 199);
   border-radius: 5px;
-  background: url(/img/background-image.jpg) fixed center/cover no-repeat;
 }
-
-/* links */
 
 .link {
   text-decoration: none;
@@ -27,21 +22,39 @@ body {
   color: rgba(0, 0, 0, 0.589);
 }
 
-/* main content */
+h1 {
+  font-weight: 1.5rem;
+  font-size: 1.5rem;
+}
 
-.main-content {
+h2 {
+  font-size: 1.3rem;
+  font-style: italic;
+  margin: 0;
+}
+
+h1,
+h2 {
+  color: rgb(123, 123, 228);
+  text-transform: uppercase;
+}
+p {
+  color: rgba(0, 0, 0, 0.589);
+  font-style: italic;
+  text-align: justify;
+}
+main {
+  background: url(/img/background-image.jpg) fixed center/cover no-repeat;
   display: grid;
-  grid-template-columns: 350px 1fr;
+  grid-template-columns: 21.5rem 1fr;
   gap: 1rem;
   border-bottom: 3px solid rgb(141, 141, 199);
 }
 
-/* aside */
-
 aside {
-  display: inline-block;
   border-right: 3px solid rgb(141, 141, 199);
 }
+
 #img-container img {
   width: 250px;
   height: 260px;
@@ -55,22 +68,12 @@ aside {
 #info-container {
   padding: 0 40px;
 }
-.personal-info {
-  margin: 40px 0;
+.info {
+  margin: 20px 0;
 }
-.about-address {
-  margin-top: 0;
-}
-.personal-info h2 {
-  color: rgb(123, 123, 228);
-  text-transform: uppercase;
-  font-weight: 20px;
-}
-.personal-info h4 {
-  font-size: 20px;
-  font-style: italic;
-  margin: 0;
-  color: rgba(0, 0, 0, 0.589);
+.info h2 {
+  text-transform: capitalize;
+  color: black;
 }
 .personal-info p,
 address {
@@ -82,42 +85,32 @@ address {
 .phone {
   display: flex;
   flex-direction: row;
+  justify-content: flex-start;
+  color: rgba(7, 7, 230, 0.884);
 }
 .phone p {
   margin-left: 10px;
 }
-#phone {
-  color: rgba(7, 7, 230, 0.884);
-}
-.info {
-  margin: 20px 0;
-}
+
 #mail {
   color: rgba(7, 7, 230, 0.884);
   text-decoration: none;
 }
 #email-icon {
   color: rgba(7, 7, 230, 0.884);
+  margin-right: 0.5rem;
 }
-.list-info {
-  list-style-type: none;
-}
-.languages {
-  padding: 0;
-}
+
+.languages,
 .personality {
   padding: 0;
 }
-.languages li,
-.personality li {
-  text-transform: capitalize;
-  color: rgba(0, 0, 0, 0.589);
-  list-style-type: none;
-}
 .languages li {
+  color: black;
   font-weight: bold;
   font-size: 20px;
 }
+
 .dot {
   height: 13px;
   width: 13px;
@@ -125,46 +118,39 @@ address {
   border-radius: 50%;
   display: inline-block;
 }
+.personality li {
+  color: rgba(0, 0, 0, 0.589);
+  font-style: italic;
+}
+.languages li,
+.personality li {
+  text-transform: capitalize;
+  list-style-type: none;
+}
+
 .empty {
   background-color: transparent;
   border: 1px solid rgb(123, 123, 228);
 }
-.personality li {
-  font-style: italic;
-}
 
-/* main */
-
-main {
-  display: inline-block;
-}
 .about {
   padding: 0 30px;
 }
-.about h1,
-.about h2,
-footer h4 {
-  color: rgb(123, 123, 228);
-  text-transform: uppercase;
+.about h1 {
+  font-size: 1.8rem;
+  margin-bottom: 35px;
 }
+
 .about h2 {
-  margin-bottom: 20px;
+  font-style: normal;
 }
-.about h1,
-footer h4 {
-  font-size: 30px;
-  margin-bottom: 35px;
-}
-.about p {
-  color: rgba(0, 0, 0, 0.589);
-  font-style: italic;
-  text-align: justify;
-}
+
 .about-info {
-  margin-bottom: 35px;
+  margin-bottom: 2.2rem;
 }
-.education {
-  margin-bottom: 40px;
+
+.about-info span {
+  font-weight: bold;
 }
 .learning-strategies-list {
   padding: 0;
@@ -173,20 +159,17 @@ footer h4 {
   list-style-type: none;
 }
 
-/* footer */
-
 footer {
-  font-size: 40px;
+  font-size: 2.5rem;
   align-items: center;
   text-align: center;
 }
 .contact-list {
   padding: 0;
+  margin: 0;
 }
 .contact-list li {
   list-style-type: none;
   display: inline-block;
   align-items: center;
-  justify-content: space-between;
-  margin: 0;
 }
