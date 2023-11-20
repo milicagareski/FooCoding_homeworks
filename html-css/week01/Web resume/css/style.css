@@ -86,6 +86,8 @@ address {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+}
+#phone {
   color: rgba(7, 7, 230, 0.884);
 }
 .phone p {
