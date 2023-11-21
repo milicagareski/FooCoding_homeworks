@@ -198,8 +198,6 @@ a:focus {
   display: block;
 }
 
-/* veel bekeken */
-
 main {
   display: flex;
   flex-direction: column;
@@ -250,7 +248,7 @@ main {
   font-weight: 900;
   content: "\f054";
   margin-right: 0.5rem;
-  font-size: 0.6rem;
+  font-size: 0.5rem;
 }
 
 .wrapper .topTaskNavigation ul li:nth-child(2) a:visited {
@@ -262,24 +260,16 @@ main {
 .wrapper .topTaskNavigation ul li:nth-child(4) a:visited {
   color: #949;
 }
+.wrapper .topTaskNavigation ul li:nth-child(2) a:focus {
+  color: #949;
+}
+.wrapper .topTaskNavigation ul li:nth-child(2) a:active {
+  color: #949;
+}
 
 .topTaskNavigation ul a:hover {
   text-decoration: underline;
 }
-
-/* .less-than {
-  color: #01689b;
-  font-size: 0.6rem;
-  margin-right: 0.5rem;
-} */
-/* 
-.topTaskNavigation ul li a:visited {
-  color: #848;
-} */
-
-/* end of veel bekeken */
-
-/*  info */
 
 .fourItems {
   display: flex;
@@ -333,9 +323,6 @@ main {
 .editorial-navigation a:hover h3 {
   text-decoration: underline;
 }
-/* end of info */
-
-/* direct naar */
 
 .wrapper {
   display: flex;
@@ -403,10 +390,6 @@ main {
   text-decoration: underline;
 }
 
-/* end of  direct naar */
-
-/* nieuws */
-
 .nieuws {
   display: flex;
   flex-direction: column;
@@ -458,10 +441,6 @@ main {
 .more:hover {
   text-decoration: underline;
 }
-
-/* end of neueuw */
-
-/* svg_img */
 
 aside {
   padding-bottom: 2rem;
@@ -521,10 +500,6 @@ aside .brick {
   font-size: 1.7rem;
   font-weight: bold;
 }
-
-/* end of svg_img*/
-
-/* footer */
 
 footer {
   margin: 0 auto;
@@ -597,9 +572,6 @@ footer .column ul li a {
 footer .column ul li a:hover {
   text-decoration: underline;
 }
-/* end of footer */
-
-/* languages */
 
 .languages {
   margin: 0;
@@ -656,9 +628,6 @@ footer .column ul li a:hover {
 .languages__wrapper ul li a:hover {
   color: black;
 }
-/* end of languages */
-
-/* media queries */
 
 @media screen and (min-width: 520px) {
   header {
@@ -873,8 +842,6 @@ footer .column ul li a:hover {
   }
 }
 
-/* end of media queries */
-
 @media screen and (min-width: 1200px) {
   #navBar .breadCrumbNav a {
     margin-left: -6rem;
@@ -901,13 +868,5 @@ footer .column ul li a:hover {
 
   .languages__wrapper {
     padding: 0 15rem;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .breadCrumbNav:hover {
-    text-decoration: underline !important;
-    color: white !important;
-    cursor: pointer !important;
   }
 }
