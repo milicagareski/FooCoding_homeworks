@@ -17,17 +17,11 @@ body {
   font-size: 16px;
 }
 
-/* a:visited {
-  color: #848;
-} */
-
 .skiplinks,
 .assistive,
 #search-form label {
   display: none;
 }
-
-/* header */
 
 header {
   height: 70px;
@@ -58,19 +52,21 @@ header {
 .logo__text {
   position: relative;
   top: -1.2rem;
+  margin: auto 0.3rem;
 }
 
-/* end of header */
-
-/* navbar */
-
+a:focus {
+  border: 2px dashed #000;
+  z-index: 1000;
+  outline-offset: 0;
+}
 #navBar {
   background-color: #01689b;
   padding-top: 10px;
 }
 
 #navBar .wrapper {
-  margin-top: -1.5rem;
+  margin-top: -1rem;
 }
 
 #navBar .breadCrumbNav {
@@ -78,15 +74,16 @@ header {
   margin-bottom: -30px;
   padding: 1.5rem;
   position: relative;
-  right: 13rem;
-  top: 1rem;
+  right: 12.8rem;
+  top: 1.5rem;
+  font-size: 1.5rem;
 }
 
 #navBar .breadCrumbNav a {
   margin-left: 9rem;
 }
 
-#navBar .breadCrumbNav:hover {
+#navBar .breadCrumbNav a:hover {
   text-decoration: underline;
   color: white;
   cursor: pointer;
@@ -103,9 +100,9 @@ header {
   margin-bottom: 30px;
 }
 
-#navBar .toggleNav:hover {
-  background-color: #01496d;
-  cursor: pointer;
+#navBar .wrapper .mainNav .toggleNav:hover {
+  background-color: #01496d !important ;
+  cursor: pointer !important;
 }
 
 #navBar #topMenu {
@@ -134,8 +131,8 @@ header {
 }
 
 .mainNav ul li a:hover {
-  text-decoration: underline;
-  cursor: pointer;
+  text-decoration: underline !important;
+  cursor: pointer !important;
 }
 
 #search-form {
@@ -248,15 +245,33 @@ main {
   color: #01689b;
 }
 
+.topTaskNavigation ul li a::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f054";
+  margin-right: 0.5rem;
+  font-size: 0.6rem;
+}
+
+.wrapper .topTaskNavigation ul li:nth-child(2) a:visited {
+  color: #949;
+}
+.wrapper .topTaskNavigation ul li:nth-child(3) a:visited {
+  color: #949;
+}
+.wrapper .topTaskNavigation ul li:nth-child(4) a:visited {
+  color: #949;
+}
+
 .topTaskNavigation ul a:hover {
   text-decoration: underline;
 }
 
-.less-than {
+/* .less-than {
   color: #01689b;
   font-size: 0.6rem;
   margin-right: 0.5rem;
-}
+} */
 /* 
 .topTaskNavigation ul li a:visited {
   color: #848;
@@ -274,6 +289,18 @@ main {
   background-color: #f3f3f3;
   padding-bottom: 3rem;
 }
+
+.fourItems .navItem a:hover {
+  border: none;
+}
+
+.fourItems .navItem .editorial-navigation-content:active {
+  border: 2px dashed #000;
+}
+.fourItems ul li a:focus {
+  border: none;
+}
+
 .info {
   background-color: #f3f3f3;
 }
@@ -306,7 +333,6 @@ main {
 .editorial-navigation a:hover h3 {
   text-decoration: underline;
 }
-
 /* end of info */
 
 /* direct naar */
@@ -644,7 +670,7 @@ footer .column ul li a:hover {
   }
 
   #navBar .breadCrumbNav a {
-    margin-left: 8.5rem;
+    margin-left: 8rem;
   }
 
   .fourItems ul {
@@ -720,7 +746,7 @@ footer .column ul li a:hover {
   }
 
   #navBar .breadCrumbNav a {
-    margin-left: 6rem;
+    margin-left: 6.5rem;
   }
   #navBar .wrapper {
     display: flex;
@@ -738,7 +764,7 @@ footer .column ul li a:hover {
     margin-bottom: 0px;
     padding: 0rem;
     position: absolute;
-    left: 0.1rem;
+    left: -1.5rem;
     top: 3.4rem;
   }
 
@@ -851,7 +877,7 @@ footer .column ul li a:hover {
 
 @media screen and (min-width: 1200px) {
   #navBar .breadCrumbNav a {
-    margin-left: -6.5em;
+    margin-left: -6rem;
   }
 
   .topTaskNavigation {
@@ -875,5 +901,13 @@ footer .column ul li a:hover {
 
   .languages__wrapper {
     padding: 0 15rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .breadCrumbNav:hover {
+    text-decoration: underline !important;
+    color: white !important;
+    cursor: pointer !important;
   }
 }
