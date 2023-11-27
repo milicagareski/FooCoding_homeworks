@@ -73,9 +73,9 @@ console.log(favouriteAnimals);
 let myString = `this is a test`;
 console.log(myString);
 //  7.2 Find a way to get the length of myString.
-let countLetterts = myString.length;
+let countLetters = myString.length;
 // 7.3 console.log the length of myString.
-console.log(countLetterts);
+console.log(countLetters);
 //8. Write a program that checks the types of two variables and prints out SAME TYPE if they are the same type.
 //  8.1 First declare at least four variables and assign them different data types.
 //  8.2 For each variable write a console.log statement that logs the value
@@ -126,7 +126,7 @@ console.log(
   `The modulos operator returns the remainder left  when one operand is divided by another.`
 );
 console.log(
-  `For example,  number 10 fully contains number 3 three times. 3 + 3 + 3 = 9.`
+  `For example, number 10 fully contains number 3 three times. 3 + 3 + 3 = 9.`
 );
 console.log(`When we subtract 9 from 10 it remains 1. So 10 % 3 would be 1`);
 console.log(modulosOperator);
@@ -153,6 +153,8 @@ console.log(
   `For this assignment I made a function that contains question, answer and example of it.`
 );
 console.log(
-  `In array it can be stored values of different type like numbers, strings, booleans. Even an array can contain another array, object or function.`
+  `In array it can be stored values of different type like numbers, strings, booleans. Even an array can contain another array, object or function. And the example used in this task show that.`
 );
-console.log(`Infinities can be compared in Javascript.`);
+console.log(
+  `Infinities can be compared in Javascript. For example Infinity === Infinity returns true. Infinity === -Infinity returns false.`
+);
