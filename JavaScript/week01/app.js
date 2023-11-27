@@ -156,5 +156,5 @@ console.log(
   `In array it can be stored values of different type like numbers, strings, booleans. Even an array can contain another array, object or function. And the example used in this task show that.`
 );
 console.log(
-  `Infinities can be compared in Javascript. For example Infinity === Infinity returns true. Infinity === -Infinity returns false.`
+  `Infinities can be compared in Javascript.For example Infinity === Infinity returns true. Infinity === -Infinity returns false.`
 );
