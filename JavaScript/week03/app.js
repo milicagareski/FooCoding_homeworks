@@ -193,31 +193,38 @@ console.log(teachers);
 // let y = [1, 2, 3];
 // let z = y;
 // What do you think will happen with x == y, x === y and z == y and z == x? Prove it!
+console.log(
+  `The arrays x and y are with exactly same values. And z is equal to y. Arrays are objects, and objects are coppied by their reference. That's why z is getting the same properties and values like y. And y is equal to x, so they are all equal. When arrays are compared, they must be first converted to strings with JSON stingify() method, ot with the buld in function toString(). And after this, the arrays become from the same type. Because of that the loose and strict operator will give us the same values. And in this cases, the execution of the function will be true.`
+);
 
 let x = [1, 2, 3];
 let y = [1, 2, 3];
 let z = y;
-
 function chechLooseEquality(arr1, arr2) {
-  if (arr1 == arr2) {
+  if (JSON.stringify(arr1) == JSON.stringify(arr2)) {
     return true;
   } else {
     return false;
   }
 }
-
 console.log(chechLooseEquality(x, y));
 console.log(chechLooseEquality(y, z));
 console.log(chechLooseEquality(x, z));
 
 function chechStrictEquality(arr1, arr2) {
-  if (arr1 === arr2) {
+  if (JSON.stringify(arr1) === JSON.stringify(arr2)) {
     return true;
   } else {
     return false;
   }
 }
-
 console.log(chechStrictEquality(x, y));
 console.log(chechStrictEquality(y, z));
 console.log(chechStrictEquality(x, z));
+
+// 3.16 Take a look at the following code:
+// let o1 = { foo: "bar" };
+// let o2 = { foo: "bar" };
+// let o3 = o2;
+// Show that changing o2 changes o3 (or not) and changing o1 changes o3(or not).
+// Does the order that you assign (o3 = o2 or o2 = o3) matter?
