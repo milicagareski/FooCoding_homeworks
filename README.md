@@ -7,4 +7,6 @@
 
 [JavaScript_week02](https://milicagareski.github.io/FooCoding_homeworks/JavaScript/week02/)
 
+[JavaScript_week03](https://milicagareski.github.io/FooCoding_homeworks/JavaScript/week03/)
+
 
