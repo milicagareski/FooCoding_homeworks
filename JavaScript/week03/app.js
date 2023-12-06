@@ -227,4 +227,42 @@ console.log(chechStrictEquality(x, z));
 // let o2 = { foo: "bar" };
 // let o3 = o2;
 // Show that changing o2 changes o3 (or not) and changing o1 changes o3(or not).
+
+let o1 = { foo: "bar" };
+let o2 = { foo: "bar" };
+let o3 = o2;
+console.log(o2);
+console.log(o3);
+
+console.log(
+  `Changing a property in o2 would change exactly property in o3, because they are objects, and objects are copied by their reference.`
+);
+
+o2.foo = "baz";
+console.log(o2);
+console.log(o3);
+
+console.log(
+  `Changing o1 would not affect o3, because their are stored in different places in the memory. o3 gets the same references like o2, but has nothing to do with o1.`
+);
+o1.foo = "item";
+console.log(o1);
+console.log(o3);
 // Does the order that you assign (o3 = o2 or o2 = o3) matter?
+console.log(
+  `The order in which direction we assign the variables matters. THe first variable, get the values from the second. So if we would write in this case o3 = o2 we would get an error, because o3 it not declared. Even if we would declared before 03 with the let keyword, o3 would be undefined, so o2 would become undefined also.`
+);
+
+// 3.17 What does the following code return? (And why?)
+// let bar = 42;
+// typeof typeof bar;
+
+console.log(
+  `The code would return string. That is because JS first it gets the type of variable declared with bar, which value is a number. In this case, the result of type of bar is "number". The word "number" in JS is a string. Next, JS is looking for the typeof "number", which is a string. So the final result would be string.`
+);
+
+let bar = 42;
+let typeOfBar = typeof bar;
+console.log(typeOfBar);
+let finalResult = typeof typeOfBar;
+console.log(finalResult);
