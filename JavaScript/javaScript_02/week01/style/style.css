@@ -1,0 +1,63 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-image: url("https://assets-global.website-files.com/5f6bd5d85587b65348960e08/6012f61a8af2646b79874dd0_Book-Cover-Design-1.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+}
+
+li {
+  display: block;
+  border: 1px solid black;
+  width: 90%;
+  height: 300px;
+  margin: 1rem 0;
+  list-style-type: none;
+  background-color: #e7eaf6;
+  text-align: center;
+  padding-bottom: 1rem;
+  max-width: 100%;
+}
+
+h1 {
+  color: rgba(2, 26, 70, 0.938);
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+p {
+  font-size: 1rem;
+  font-style: italic;
+  color: rgb(3, 3, 10);
+  letter-spacing: 0.3rem;
+}
+
+a {
+  text-decoration: none;
+  font-size: 1rem;
+  color: rgb(34, 4, 63);
+}
+
+img {
+  width: 150px;
+  height: 60%;
+}
+
+@media screen and (min-width: 700px) {
+  li {
+    margin: 1rem;
+    max-width: 30%;
+  }
+}
