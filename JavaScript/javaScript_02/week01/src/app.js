@@ -106,7 +106,7 @@ displayFavouriteBooks(showFavouriteBooks(favouriteBooks, booksInfo));
 function covers(favouriteBooks) {
   let bookCovers = {};
   for (let i of favouriteBooks) {
-    bookCovers[i] = `../img/${i}.jpg`;
+    bookCovers[i] = `./img/${i}.jpg`;
   }
   return bookCovers;
 }
