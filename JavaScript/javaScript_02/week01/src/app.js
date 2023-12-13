@@ -113,7 +113,6 @@ function covers(favouriteBooks) {
 covers(favouriteBooks);
 
 function setImages(obj) {
-  // const arrayOfBooks = Object.keys(covers(favouriteBooks));
   let listItems = document.querySelectorAll("li");
   let images = [];
   for (let key in obj) {
