@@ -103,33 +103,32 @@ displayFavouriteBooks(showFavouriteBooks(favouriteBooks, booksInfo));
 // exercise 6  - Beautify your html page with css (use the style.css file for that).
 
 // exercise 7
-function covers(favouriteBooks) {
+function covers(books) {
   let bookCovers = {};
-  for (let i of favouriteBooks) {
+  for (let i of books) {
     bookCovers[i] = `./img/${i}.jpg`;
   }
   return bookCovers;
 }
-covers(favouriteBooks);
+// covers(favouriteBooks);
 
 // exercise 8
 
-function setImages(obj) {
+function setImages(books) {
+  let bookCovers = covers(books);
+  let keys = Object.keys(bookCovers);
   let listItems = document.querySelectorAll("li");
-  let images = [];
-  for (let key in obj) {
-    let img = document.createElement("img");
-    img.src = obj[key];
-    img.alt = key;
-    images.push(img);
-  }
   for (let item of listItems) {
-    for (let img of images) {
-      if (item.id === img.alt) {
+    for (let key of keys) {
+      if (item.id === key) {
+        let img = document.createElement("img");
+        img.src = bookCovers[key];
+        img.alt = key;
         item.insertBefore(img, item.children[0]);
+        break;
       }
     }
   }
 }
 
-setImages(covers(favouriteBooks));
+setImages(favouriteBooks);
