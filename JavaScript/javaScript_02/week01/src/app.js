@@ -112,6 +112,8 @@ function covers(favouriteBooks) {
 }
 covers(favouriteBooks);
 
+// exercise 8
+
 function setImages(obj) {
   let listItems = document.querySelectorAll("li");
   let images = [];
