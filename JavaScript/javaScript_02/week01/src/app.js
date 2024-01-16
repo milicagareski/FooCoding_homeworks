@@ -111,6 +111,7 @@ function covers(books) {
   return bookCovers;
 }
 // covers(favouriteBooks);
+console.log(covers(favouriteBooks));
 
 // exercise 8
 
