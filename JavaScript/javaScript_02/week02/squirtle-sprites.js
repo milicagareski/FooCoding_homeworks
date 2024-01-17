@@ -13,36 +13,35 @@ function fetchPokemonData() {
 function displayPokemons(obj) {
   let pokemonData = JSON.parse(obj);
 
-  const container = document.createElement('div');
-  container.setAttribute('id', 'container');
-  container.style.minHeight = '100vh';
-  container.style.backgroundColor = ' #e0ffcd';
-  container.style.display = 'flex';
-  container.style.justifyContent = 'center';
-  container.style.alignItems = 'center';
+  const container = document.createElement("div");
+  container.setAttribute("id", "container");
+  container.style.minHeight = "100vh";
+  container.style.backgroundColor = " #e0ffcd";
+  container.style.display = "flex";
+  container.style.justifyContent = "center";
+  container.style.alignItems = "center";
   document.body.appendChild(container);
-  const list = document.createElement('ul');
-  list.setAttribute('id', 'list');
-  list.style.display = 'flex';
+  const list = document.createElement("ul");
+  list.setAttribute("id", "list");
   container.appendChild(list);
 
   const images = Object.values(pokemonData.sprites);
 
   const displayImages = images
-    .filter(img => {
+    .filter((img) => {
       return img !== null;
     })
     .map((img, index) => {
-      const item = document.createElement('li');
-      item.setAttribute('class', 'img-container');
-      item.style.listStyleType = 'none';
-      item.style.margin = '0 50px';
-      item.style.backgroundColor = 'lightGrey';
-      item.style.borderRadius = '50%';
-      const image = document.createElement('img');
+      const item = document.createElement("li");
+      item.setAttribute("class", "img-container");
+      item.style.listStyleType = "none";
+      item.style.margin = " 50px";
+      item.style.backgroundColor = "lightGrey";
+      item.style.borderRadius = "50%";
+      const image = document.createElement("img");
       image.src = img;
       img.alt = index;
-      image.style.width = '200px';
+      image.style.width = "200px";
       item.appendChild(image);
       list.appendChild(item);
     });
