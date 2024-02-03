@@ -12,3 +12,5 @@
 [JavaScript_02_week01](https://milicagareski.github.io/FooCoding_homeworks/JavaScript/javaScript_02/week01/)
 
 [JavaScript_02_week02](https://milicagareski.github.io/FooCoding_homeworks/JavaScript/javaScript_02/week02/)
+
+[Portfolio_Project](https://milicagareski.github.io/portfolio/templates/)
