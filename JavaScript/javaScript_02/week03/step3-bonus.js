@@ -1,6 +1,6 @@
-'use strict';
+"use strict";
 
-const values = ['a', 'b', 'c', 'd', 'a', 'e', 'f', 'c'];
+const values = ["a", "b", "c", "d", "a", "e", "f", "c"];
 
 function makeUnique(arr) {
   const uniqueArray = [];
