@@ -1,5 +1,5 @@
-const compareUsersID = (users) => {
+const compareID = (users) => {
   return users.sort((a, b) => b.id - a.id);
 };
 
-export default compareUsersID;
+export default compareID;
