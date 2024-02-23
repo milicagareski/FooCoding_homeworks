@@ -36,7 +36,7 @@ let users = [
 ];
 
 defineRoute("GET", "/users", (req, res) => {
-  let status = 400;
+  let status = 404;
   let message = "Users not found";
   if (users.length > 0) {
     status = 200;
@@ -50,11 +50,11 @@ defineRoute("GET", "/users/:id", (req, res) => {
   const userId = Number(req.params.id);
   const getUser = users.find((user) => userId === user.id);
 
-  let status = 400;
+  let status = 404;
   let message = "User not found";
 
   if (getUser) {
-    status = 400;
+    status = 200;
     message = getUser;
   }
   res.writeHead(status, { "Content-type": "application/json" });
@@ -79,7 +79,7 @@ defineRoute("POST", "/users", (req, res) => {
   if (userName && email) {
     users.unshift(newUser);
 
-    status = 200;
+    status = 201;
     message = newUser;
   }
   res.writeHead(status, { "Content-type": "application/json" });
@@ -90,8 +90,8 @@ defineRoute("PUT", "/users/:id", (req, res) => {
   const userId = Number(req.params.id);
   const getUser = users.find((user) => userId === user.id);
 
-  let status = 400;
-  let message = "user not found";
+  let status = 404;
+  let message = "The requested user is not found";
 
   const changeName = req.body.userName;
   const changeEmail = req.body.email;
@@ -119,8 +119,8 @@ defineRoute("PATCH", "/users/:id", (req, res) => {
   const changeName = req.body.userName;
   const changeEmail = req.body.email;
 
-  let status = 400;
-  let message = "User not found";
+  let status = 404;
+  let message = "The requested user is not found";
 
   if (getUser) {
     getUser.userName = changeName || getUser.userName;
@@ -154,7 +154,7 @@ defineRoute("DELETE", "/users/:id", (req, res) => {
 defineRoute("GET", "/posts", (req, res) => {
   const sortedPostsById = compareID(posts);
   let message = "Posts not found";
-  let status = 400;
+  let status = 404;
 
   if (sortedPostsById.length > 0) {
     status = 200;
@@ -167,7 +167,7 @@ defineRoute("GET", "/posts", (req, res) => {
 defineRoute("GET", "/posts/:id", (req, res) => {
   const postId = Number(req.params.id);
   const getPostById = posts.find((post) => postId === post.id);
-  let status = 400;
+  let status = 404;
   let message = "post not found";
 
   if (getPostById) {
@@ -181,7 +181,7 @@ defineRoute("GET", "/posts/:id", (req, res) => {
 defineRoute("GET", "/posts/user/:id", (req, res) => {
   const userId = Number(req.params.id);
   const getUser = users.find((user) => userId === user.id);
-  let status = 400;
+  let status = 404;
   let message = "user not found";
 
   if (getUser) {
@@ -202,7 +202,7 @@ defineRoute("GET", "/posts/user/:id", (req, res) => {
 defineRoute("POST", "/posts/:id", (req, res) => {
   const sortedPostsById = compareID(posts);
 
-  let message = "user not found";
+  let message = "Unable to post this article";
   let status = 400;
 
   const userId = Number(req.params.id);
@@ -228,13 +228,12 @@ defineRoute("POST", "/posts/:id", (req, res) => {
 
   if (userId) {
     if (title && body && postTags && reactions) {
-      status = 200;
+      status = 201;
       message = post;
 
       posts.unshift(post);
     } else {
-      status = 400;
-      message = "please provide all information about the post";
+      message = "please provide all information about the article";
     }
   }
 
@@ -246,7 +245,7 @@ defineRoute("PATCH", "/posts/:id", (req, res) => {
   const postId = Number(req.params.id);
   const post = posts.find((item) => postId === item.id);
 
-  let status = 400;
+  let status = 404;
   let message = "Post not found";
 
   if (post) {
@@ -267,7 +266,7 @@ defineRoute("PATCH", "/posts/user/:id", (req, res) => {
   const ID = Number(req.params.id);
   const UserPosts = posts.filter((post) => ID === post.userId);
 
-  let status = 400;
+  let status = 404;
   let message = "post not found";
 
   const findPostID = req.body.id;
