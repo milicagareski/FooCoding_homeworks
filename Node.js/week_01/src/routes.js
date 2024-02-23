@@ -246,19 +246,14 @@ defineRoute("PATCH", "/posts/:id", (req, res) => {
   const postId = Number(req.params.id);
   const post = posts.find((item) => postId === item.id);
 
-  const title = req.body.title;
-  const body = req.body.body;
-  const reactions = Number(req.body.reactions);
-  const tags = req.body.tags;
-
   let status = 400;
   let message = "Post not found";
 
   if (post) {
-    post.title = title || post.title;
-    post.body = body || post.body;
-    post.reactions = reactions || post.reactions;
-    post.tags = tags || post.tags;
+    post.title = req.body.title || post.title;
+    post.body = req.body.body || post.body;
+    post.reactions = Number(req.body.reactions) || post.reactions;
+    post.tags = req.body.tags.split(" ") || post.tags;
 
     status = 200;
     message = post;
@@ -268,16 +263,32 @@ defineRoute("PATCH", "/posts/:id", (req, res) => {
   res.end(JSON.stringify(message));
 });
 
-// defineRoute("PATCH", "/posts/user/:id/:sport", (req, res) => {
-//   const postId = Number(req.params.id);
-//   const sportName = req.params.sport;
-//   const UserPosts = posts.filter((post) => postId === post.userId);
-//   console.log(UserPosts);
-//   const findPost = UserPosts.filter((post) => console.log(post.title));
+defineRoute("PATCH", "/posts/user/:id", (req, res) => {
+  const ID = Number(req.params.id);
+  const UserPosts = posts.filter((post) => ID === post.userId);
 
-//   console.log(findPost);
-//   res.end("hi");
-// });
+  let status = 400;
+  let message = "post not found";
+
+  const findPostID = req.body.id;
+
+  if (UserPosts.length > 0) {
+    let findPost = UserPosts.find((post) => post.id === findPostID);
+
+    const title = req.body.title || findPost.title;
+    const body = req.body.body || findPost.body;
+    const reactions = Number(req.body.reactions) || findPost.reactions;
+    const tags = req.body.tags.split(" ") || findPost.tags;
+    const userID = req.body.userId;
+    let newPost = { findPostID, title, body, tags, userID, reactions };
+
+    status = 200;
+    message = newPost;
+  }
+
+  res.writeHead(status, { "Content-type": "application/json" });
+  res.end(JSON.stringify(message));
+});
 
 defineRoute("DELETE", "/posts/:id", (req, res) => {
   const postId = Number(req.params.id);
