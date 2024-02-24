@@ -7,42 +7,7 @@ import {
   getPosts,
 } from "./utils/db-operations.js";
 
-// let posts = [
-//   {
-//     id: 1,
-//     title: "Handball",
-//     body: "Handball is a team sport in which two teams of seven players each pass a ball using their hands with the aim of throwing it into the goal of the opposing team. A standard match consists of two periods of 30 minutes, and the team that scores more goals wins.",
-//     userId: 2,
-//     tags: ["sport", "handballplayer", "handballtime"],
-//     reactions: 3,
-//   },
-//   {
-//     id: 2,
-//     title: "Swimming",
-//     body: "Swimming is an individual or team racing sport that requires the use of one's entire body to move through water. The sport takes place in pools or open water.",
-//     userId: 4,
-//     tags: ["sport", "swimmingtime", "openwater"],
-//     reactions: 3,
-//   },
-//   {
-//     id: 3,
-//     title: "Basketball",
-//     body: "Basketball is a team sport in which two teams, most commonly of five players each, opposing one another on a rectangular court, compete with the primary objective of shooting a basketball through the defender's hoop, while preventing the opposing team from shooting through their own hoop.",
-//     userId: 2,
-//     tags: ["sport", "basketballplayer", "basketballtime"],
-//     reactions: 3,
-//   },
-// ];
-
 let posts = getPosts();
-
-// let users = [
-//   { id: 1, userName: "Anna", email: "anna@anna.com" },
-//   { id: 2, userName: "Peter", email: "peter@peter.com" },
-//   { id: 3, userName: "John", email: "john@john.com" },
-//   { id: 4, userName: "Sarah", email: "sarah@sarah.com" },
-// ];
-
 let users = getUsers();
 
 defineRoute("GET", "/users", (req, res) => {

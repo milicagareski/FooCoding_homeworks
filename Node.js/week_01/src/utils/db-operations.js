@@ -3,7 +3,6 @@ import fs from "fs";
 /**
  *
  * @param {Object[]} data
- * @returns {Object[]} result
  */
 export const saveUsers = (data) => {
   try {
@@ -29,7 +28,6 @@ export const getUsers = () => {
 /**
  *
  * @param {Object[]} data
- * @returns {Object[]} result
  */
 export const savePosts = (data) => {
   try {
