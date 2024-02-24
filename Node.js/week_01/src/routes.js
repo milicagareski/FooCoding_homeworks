@@ -137,28 +137,19 @@ defineRoute("PUT", "/users/:id", (req, res) => {
 
 defineRoute("PATCH", "/users/:id", (req, res) => {
   const userId = Number(req.params.id);
-  const getUser = users.find((user) => userId === user.id);
-
-  const changeName = req.body.userName;
-  const changeEmail = req.body.email;
 
   let status = 404;
   let message = "The requested user is not found";
 
-  if (getUser) {
-    getUser.userName = changeName || getUser.userName;
-    getUser.email = changeEmail || getUser.email;
-
-    for (const [index, user] of users.entries()) {
-      if (user.id === getUser.id) {
-        users[index] = getUser;
-        saveUsers(users);
-        break;
-      }
+  for (let item of users) {
+    if (userId === item.id) {
+      item.userName = req.body.userName || item.userName;
+      item.email = req.body.email || item.email;
+      saveUsers(users);
+      status = 200;
+      message = item;
+      break;
     }
-
-    status = 200;
-    message = getUser;
   }
 
   res.writeHead(status, { "Content-type": "application/json" });
@@ -280,27 +271,21 @@ defineRoute("POST", "/posts", (req, res) => {
 
 defineRoute("PATCH", "/posts/:id", (req, res) => {
   const postId = Number(req.params.id);
-  const getPost = posts.find((item) => postId === item.id);
 
   let status = 404;
   let message = "Post not found";
 
-  if (getPost) {
-    getPost.title = req.body.title || getPost.title;
-    getPost.body = req.body.body || getPost.body;
-    getPost.reactions = Number(req.body.reactions) || getPost.reactions;
-    getPost.tags = req.body.tags || getPost.tags;
-
-    for (const [index, post] of posts.entries()) {
-      if (post.id === getPost.id) {
-        posts[index] = getPost;
-        savePosts(posts);
-        break;
-      }
+  for (let item of posts) {
+    if (postId === item.id) {
+      item.title = req.body.title || item.title;
+      item.body = req.body.body || item.body;
+      item.reactions = Number(req.body.reactions) || item.reactions;
+      item.tags = req.body.tags || item.tags;
+      savePosts(posts);
+      status = 200;
+      message = item;
+      break;
     }
-
-    status = 200;
-    message = getPost;
   }
 
   res.writeHead(status, { "Content-type": "application/json" });
@@ -308,34 +293,23 @@ defineRoute("PATCH", "/posts/:id", (req, res) => {
 });
 
 defineRoute("PATCH", "/posts/user/:id", (req, res) => {
-  const ID = Number(req.params.id);
-  const userPosts = posts.filter((post) => ID === post.userId);
+  const userId = Number(req.params.id);
+  const postId = Number(req.body.id);
 
   let status = 404;
   let message = "post not found";
 
-  const findPostID = req.body.id;
-
-  if (userPosts.length > 0) {
-    let findPost = userPosts.find((post) => post.id === findPostID);
-
-    const title = req.body.title || findPost.title;
-    const body = req.body.body || findPost.body;
-    const reactions = Number(req.body.reactions) || findPost.reactions;
-    const tags = req.body.tags || findPost.tags;
-    const userID = ID;
-    let newPost = { findPostID, title, body, tags, userID, reactions };
-
-    for (const [index, post] of posts.entries()) {
-      if (post.id === findPost.id) {
-        posts[index] = findPost;
-        savePosts(posts);
-        break;
-      }
+  for (let item of posts) {
+    if (userId === item.userId && postId === item.id) {
+      item.title = req.body.title || item.title;
+      item.body = req.body.body || item.body;
+      item.reactions = Number(req.body.reactions) || item.reactions;
+      item.tags = req.body.tags || item.tags;
+      savePosts(posts);
+      status = 200;
+      message = item;
+      break;
     }
-
-    status = 200;
-    message = newPost;
   }
 
   res.writeHead(status, { "Content-type": "application/json" });
