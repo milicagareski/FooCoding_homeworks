@@ -1,0 +1,50 @@
+[
+    {
+        "id": 4,
+        "title": "Tennis",
+        "body": "Tennis is a racket sport that is played either individually against a single opponent or between two teams of two players each. Each player uses a tennis racket that is strung with cord to strike a hollow rubber ball covered with felt over or around a net and into the opponent's court.",
+        "userId": 2,
+        "tags": [
+            "sport",
+            "tennisplayer",
+            "tennistime"
+        ],
+        "reactions": 3
+    },
+    {
+        "id": 3,
+        "title": "Skiing",
+        "body": "Skiing is the use of skis to glide on snow. Variations of purpose include basic transport, a recreational activity, or a competitive winter sport. Many types of competitive skiing events are recognized by the International Olympic Committee, and the International Ski and Snowboard Federation. ",
+        "userId": 4,
+        "tags": [
+            "sport",
+            "skiing",
+            "skiingtime"
+        ],
+        "reactions": 3
+    },
+    {
+        "id": 2,
+        "title": "Basketball",
+        "body": "Basketball is a team sport in which two teams, most commonly of five players each, opposing one another on a rectangular court, compete with the primary objective of shooting a basketball through the defender's hoop, while preventing the opposing team from shooting through their own hoop.",
+        "userId": 2,
+        "tags": [
+            "sport",
+            "basketballplayer",
+            "basketballtime"
+        ],
+        "reactions": 3
+    },
+    {
+        "id": 1,
+        "title": "Handball",
+        "body": "Handball is a team sport in which two teams of seven players each pass a ball using their hands with the aim of throwing it into the goal of the opposing team. A standard match consists of two periods of 30 minutes, and the team that scores more goals wins.",
+        "userId": 3,
+        "tags": [
+            "sport",
+            "handballplayer",
+            "handballtime"
+        ],
+        "reactions": 3
+    }
+]

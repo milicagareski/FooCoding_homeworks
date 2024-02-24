@@ -1,47 +1,59 @@
 import { defineRoute, router } from "./utils/define-route.js";
-import compareID from "./utils/compareUsersID.js";
+import compareID from "./utils/compare-users-id.js";
+import {
+  saveUsers,
+  getUsers,
+  savePosts,
+  getPosts,
+} from "./utils/db-operations.js";
 
-let posts = [
-  {
-    id: 1,
-    title: "Handball",
-    body: "Handball is a team sport in which two teams of seven players each pass a ball using their hands with the aim of throwing it into the goal of the opposing team. A standard match consists of two periods of 30 minutes, and the team that scores more goals wins.",
-    userId: 2,
-    tags: ["sport", "handballplayer", "handballtime"],
-    reactions: 3,
-  },
-  {
-    id: 2,
-    title: "Swimming",
-    body: "Swimming is an individual or team racing sport that requires the use of one's entire body to move through water. The sport takes place in pools or open water.",
-    userId: 4,
-    tags: ["sport", "swimmingtime", "openwater"],
-    reactions: 3,
-  },
-  {
-    id: 3,
-    title: "Basketball",
-    body: "Basketball is a team sport in which two teams, most commonly of five players each, opposing one another on a rectangular court, compete with the primary objective of shooting a basketball through the defender's hoop, while preventing the opposing team from shooting through their own hoop.",
-    userId: 2,
-    tags: ["sport", "basketballplayer", "basketballtime"],
-    reactions: 3,
-  },
-];
+// let posts = [
+//   {
+//     id: 1,
+//     title: "Handball",
+//     body: "Handball is a team sport in which two teams of seven players each pass a ball using their hands with the aim of throwing it into the goal of the opposing team. A standard match consists of two periods of 30 minutes, and the team that scores more goals wins.",
+//     userId: 2,
+//     tags: ["sport", "handballplayer", "handballtime"],
+//     reactions: 3,
+//   },
+//   {
+//     id: 2,
+//     title: "Swimming",
+//     body: "Swimming is an individual or team racing sport that requires the use of one's entire body to move through water. The sport takes place in pools or open water.",
+//     userId: 4,
+//     tags: ["sport", "swimmingtime", "openwater"],
+//     reactions: 3,
+//   },
+//   {
+//     id: 3,
+//     title: "Basketball",
+//     body: "Basketball is a team sport in which two teams, most commonly of five players each, opposing one another on a rectangular court, compete with the primary objective of shooting a basketball through the defender's hoop, while preventing the opposing team from shooting through their own hoop.",
+//     userId: 2,
+//     tags: ["sport", "basketballplayer", "basketballtime"],
+//     reactions: 3,
+//   },
+// ];
 
-let users = [
-  { id: 1, userName: "Anna", email: "anna@anna.com" },
-  { id: 2, userName: "Peter", email: "peter@peter.com" },
-  { id: 3, userName: "John", email: "john@john.com" },
-  { id: 4, userName: "Sarah", email: "sarah@sarah.com" },
-];
+let posts = getPosts();
+
+// let users = [
+//   { id: 1, userName: "Anna", email: "anna@anna.com" },
+//   { id: 2, userName: "Peter", email: "peter@peter.com" },
+//   { id: 3, userName: "John", email: "john@john.com" },
+//   { id: 4, userName: "Sarah", email: "sarah@sarah.com" },
+// ];
+
+let users = getUsers();
 
 defineRoute("GET", "/users", (req, res) => {
   let status = 404;
   let message = "Users not found";
+
   if (users.length > 0) {
     status = 200;
     message = users;
   }
+
   res.writeHead(status, { "Content-type": "application/json" });
   res.end(JSON.stringify(message));
 });
@@ -57,13 +69,13 @@ defineRoute("GET", "/users/:id", (req, res) => {
     status = 200;
     message = getUser;
   }
+
   res.writeHead(status, { "Content-type": "application/json" });
   res.end(JSON.stringify(message));
 });
 
 defineRoute("POST", "/users", (req, res) => {
   const sortUsersById = compareID(users);
-
   const id =
     sortUsersById.reduce((acc, cur) => {
       return (acc = acc > cur.id ? acc : cur.id);
@@ -78,10 +90,12 @@ defineRoute("POST", "/users", (req, res) => {
 
   if (userName && email) {
     users.unshift(newUser);
+    saveUsers(users);
 
     status = 201;
     message = newUser;
   }
+
   res.writeHead(status, { "Content-type": "application/json" });
   res.end(JSON.stringify(message));
 });
@@ -100,6 +114,15 @@ defineRoute("PUT", "/users/:id", (req, res) => {
     if (changeName && changeEmail) {
       getUser.userName = changeName;
       getUser.email = changeEmail;
+
+      for (const [index, user] of users.entries()) {
+        if (user.id === getUser.id) {
+          users[index] = getUser;
+          saveUsers(users);
+          break;
+        }
+      }
+
       status = 200;
       message = getUser;
     } else {
@@ -126,9 +149,18 @@ defineRoute("PATCH", "/users/:id", (req, res) => {
     getUser.userName = changeName || getUser.userName;
     getUser.email = changeEmail || getUser.email;
 
+    for (const [index, user] of users.entries()) {
+      if (user.id === getUser.id) {
+        users[index] = getUser;
+        saveUsers(users);
+        break;
+      }
+    }
+
     status = 200;
     message = getUser;
   }
+
   res.writeHead(status, { "Content-type": "application/json" });
   res.end(JSON.stringify(message));
 });
@@ -145,7 +177,9 @@ defineRoute("DELETE", "/users/:id", (req, res) => {
     status = 404;
     message = "User not found";
   }
+
   users.splice(indexOfUser, 1);
+  saveUsers(users);
 
   res.writeHead(status, { "Content-type": "application/json" });
   res.end(JSON.stringify(message));
@@ -160,6 +194,7 @@ defineRoute("GET", "/posts", (req, res) => {
     status = 200;
     message = sortedPostsById;
   }
+
   res.writeHead(status, { "Content-type": "application/json" });
   res.end(JSON.stringify({ message }));
 });
@@ -174,6 +209,7 @@ defineRoute("GET", "/posts/:id", (req, res) => {
     status = 200;
     message = getPostById;
   }
+
   res.writeHead(status, { "Content-type": "application/json" });
   res.end(JSON.stringify({ message }));
 });
@@ -195,17 +231,18 @@ defineRoute("GET", "/posts/user/:id", (req, res) => {
       message = "This user don't have any posts";
     }
   }
+
   res.writeHead(status, { "Content-type": "application/json" });
   res.end(JSON.stringify({ message }));
 });
 
-defineRoute("POST", "/posts/:id", (req, res) => {
+defineRoute("POST", "/posts", (req, res) => {
   const sortedPostsById = compareID(posts);
 
   let message = "Unable to post this article";
   let status = 400;
 
-  const userId = Number(req.params.id);
+  const userId = Number(req.body.userId);
   const id =
     sortedPostsById.reduce((acc, cur) => {
       return (acc = acc > cur.id ? acc : cur.id);
@@ -215,23 +252,23 @@ defineRoute("POST", "/posts/:id", (req, res) => {
   const body = req.body.body;
   const reactions = Number(req.body.reactions);
   const tags = req.body.tags;
-  const postTags = tags.split(" ");
 
   const post = {
     id,
     title,
     body,
     userId,
-    postTags,
+    tags,
     reactions,
   };
 
   if (userId) {
-    if (title && body && postTags && reactions) {
+    if (title && body && tags && reactions) {
       status = 201;
       message = post;
 
       posts.unshift(post);
+      savePosts(posts);
     } else {
       message = "please provide all information about the article";
     }
@@ -243,19 +280,27 @@ defineRoute("POST", "/posts/:id", (req, res) => {
 
 defineRoute("PATCH", "/posts/:id", (req, res) => {
   const postId = Number(req.params.id);
-  const post = posts.find((item) => postId === item.id);
+  const getPost = posts.find((item) => postId === item.id);
 
   let status = 404;
   let message = "Post not found";
 
-  if (post) {
-    post.title = req.body.title || post.title;
-    post.body = req.body.body || post.body;
-    post.reactions = Number(req.body.reactions) || post.reactions;
-    post.tags = req.body.tags.split(" ") || post.tags;
+  if (getPost) {
+    getPost.title = req.body.title || getPost.title;
+    getPost.body = req.body.body || getPost.body;
+    getPost.reactions = Number(req.body.reactions) || getPost.reactions;
+    getPost.tags = req.body.tags || getPost.tags;
+
+    for (const [index, post] of posts.entries()) {
+      if (post.id === getPost.id) {
+        posts[index] = getPost;
+        savePosts(posts);
+        break;
+      }
+    }
 
     status = 200;
-    message = post;
+    message = getPost;
   }
 
   res.writeHead(status, { "Content-type": "application/json" });
@@ -264,22 +309,30 @@ defineRoute("PATCH", "/posts/:id", (req, res) => {
 
 defineRoute("PATCH", "/posts/user/:id", (req, res) => {
   const ID = Number(req.params.id);
-  const UserPosts = posts.filter((post) => ID === post.userId);
+  const userPosts = posts.filter((post) => ID === post.userId);
 
   let status = 404;
   let message = "post not found";
 
   const findPostID = req.body.id;
 
-  if (UserPosts.length > 0) {
-    let findPost = UserPosts.find((post) => post.id === findPostID);
+  if (userPosts.length > 0) {
+    let findPost = userPosts.find((post) => post.id === findPostID);
 
     const title = req.body.title || findPost.title;
     const body = req.body.body || findPost.body;
     const reactions = Number(req.body.reactions) || findPost.reactions;
-    const tags = req.body.tags.split(" ") || findPost.tags;
-    const userID = req.body.userId;
+    const tags = req.body.tags || findPost.tags;
+    const userID = ID;
     let newPost = { findPostID, title, body, tags, userID, reactions };
+
+    for (const [index, post] of posts.entries()) {
+      if (post.id === findPost.id) {
+        posts[index] = findPost;
+        savePosts(posts);
+        break;
+      }
+    }
 
     status = 200;
     message = newPost;
@@ -301,7 +354,9 @@ defineRoute("DELETE", "/posts/:id", (req, res) => {
     status = 404;
     message = "Post not found";
   }
+
   posts.splice(indexOfPost, 1);
+  savePosts(posts);
 
   res.writeHead(status, { "Content-type": "application/json" });
   res.end(JSON.stringify(message));
