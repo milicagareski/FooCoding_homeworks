@@ -19,7 +19,7 @@ export const saveUsers = (data) => {
 export const getUsers = () => {
   try {
     const result = fs.readFileSync("./data/users.json");
-    return JSON.parse(result);
+    return JSON.parse(result.filter((u) => !u.deleted));
   } catch (error) {
     return [];
   }
@@ -44,7 +44,7 @@ export const savePosts = (data) => {
 export const getPosts = () => {
   try {
     const result = fs.readFileSync("./data/posts.json");
-    return JSON.parse(result);
+    return JSON.parse(result.filter((p) => !p.deleted));
   } catch (error) {
     return [];
   }

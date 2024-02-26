@@ -14,9 +14,9 @@ defineRoute("GET", "/users", (req, res) => {
   let status = 404;
   let message = "Users not found";
 
-  if (users.length > 0) {
+  if (users.length >= 0) {
     status = 200;
-    message = users;
+    message = users.filter((u) => !u.deleted);
   }
 
   res.writeHead(status, { "Content-type": "application/json" });
@@ -25,7 +25,7 @@ defineRoute("GET", "/users", (req, res) => {
 
 defineRoute("GET", "/users/:id", (req, res) => {
   const userId = Number(req.params.id);
-  const getUser = users.find((user) => userId === user.id);
+  const getUser = users.find((user) => userId === user.id && !user.deleted);
 
   let status = 404;
   let message = "User not found";
@@ -48,7 +48,7 @@ defineRoute("POST", "/users", (req, res) => {
 
   const userName = req.body.userName;
   const email = req.body.email;
-  const newUser = { id, userName, email };
+  const newUser = { id, userName, email, deleted: false };
 
   let status = 400;
   let message = "Please provide your username and email";
@@ -67,7 +67,7 @@ defineRoute("POST", "/users", (req, res) => {
 
 defineRoute("PUT", "/users/:id", (req, res) => {
   const userId = Number(req.params.id);
-  const getUser = users.find((user) => userId === user.id);
+  const getUser = users.find((user) => userId === user.id && !user.deleted);
 
   let status = 404;
   let message = "The requested user is not found";
@@ -106,13 +106,13 @@ defineRoute("PATCH", "/users/:id", (req, res) => {
   let status = 404;
   let message = "The requested user is not found";
 
-  for (let item of users) {
-    if (userId === item.id) {
-      item.userName = req.body.userName || item.userName;
-      item.email = req.body.email || item.email;
+  for (let user of users) {
+    if (userId === user.id && !user.deleted) {
+      user.userName = req.body.userName || user.userName;
+      user.email = req.body.email || user.email;
       saveUsers(users);
       status = 200;
-      message = item;
+      message = user;
       break;
     }
   }
@@ -123,19 +123,25 @@ defineRoute("PATCH", "/users/:id", (req, res) => {
 
 defineRoute("DELETE", "/users/:id", (req, res) => {
   const userId = Number(req.params.id);
-  const getUser = users.find((user) => userId === user.id);
-  const indexOfUser = users.indexOf(getUser);
+  const getUser = users.find((user) => userId === user.id && !user.deleted);
 
-  let status = 200;
-  let message = "User deleted";
+  let status = 400;
+  let message = "User delete failed";
 
-  if (!getUser) {
-    status = 404;
-    message = "User not found";
+  if (getUser) {
+    getUser.deleted = true;
+
+    for (const [index, user] of users.entries()) {
+      if (user.id === getUser.id) {
+        users[index] = getUser;
+        saveUsers(users);
+        break;
+      }
+    }
+
+    status = 200;
+    message = "User deleted successfully";
   }
-
-  users.splice(indexOfUser, 1);
-  saveUsers(users);
 
   res.writeHead(status, { "Content-type": "application/json" });
   res.end(JSON.stringify(message));
@@ -146,9 +152,9 @@ defineRoute("GET", "/posts", (req, res) => {
   let message = "Posts not found";
   let status = 404;
 
-  if (sortedPostsById.length > 0) {
+  if (sortedPostsById.length >= 0) {
     status = 200;
-    message = sortedPostsById;
+    message = sortedPostsById.filter((p) => !p.deleted);
   }
 
   res.writeHead(status, { "Content-type": "application/json" });
@@ -157,9 +163,9 @@ defineRoute("GET", "/posts", (req, res) => {
 
 defineRoute("GET", "/posts/:id", (req, res) => {
   const postId = Number(req.params.id);
-  const getPostById = posts.find((post) => postId === post.id);
+  const getPostById = posts.find((post) => postId === post.id && !post.deleted);
   let status = 404;
-  let message = "post not found";
+  let message = "Post not found";
 
   if (getPostById) {
     status = 200;
@@ -172,13 +178,13 @@ defineRoute("GET", "/posts/:id", (req, res) => {
 
 defineRoute("GET", "/posts/user/:id", (req, res) => {
   const userId = Number(req.params.id);
-  const getUser = users.find((user) => userId === user.id);
+  const getUser = users.find((user) => userId === user.id && !user.deleted);
   let status = 404;
   let message = "user not found";
 
   if (getUser) {
     const getUserPosts = posts.filter((post) => {
-      return post.userId === getUser.id;
+      return post.userId === getUser.id && !post.deleted;
     });
     if (getUserPosts.length > 0) {
       status = 200;
@@ -216,6 +222,7 @@ defineRoute("POST", "/posts", (req, res) => {
     userId,
     tags,
     reactions,
+    deleted: false,
   };
 
   if (userId) {
@@ -226,7 +233,7 @@ defineRoute("POST", "/posts", (req, res) => {
       posts.unshift(post);
       savePosts(posts);
     } else {
-      message = "please provide all information about the article";
+      message = "Please provide all information about the article";
     }
   }
 
@@ -240,15 +247,15 @@ defineRoute("PATCH", "/posts/:id", (req, res) => {
   let status = 404;
   let message = "Post not found";
 
-  for (let item of posts) {
-    if (postId === item.id) {
-      item.title = req.body.title || item.title;
-      item.body = req.body.body || item.body;
-      item.reactions = Number(req.body.reactions) || item.reactions;
-      item.tags = req.body.tags || item.tags;
+  for (let post of posts) {
+    if (postId === post.id && !post.deleted) {
+      post.title = req.body.title || post.title;
+      post.body = req.body.body || post.body;
+      post.reactions = Number(req.body.reactions) || post.reactions;
+      post.tags = req.body.tags || post.tags;
       savePosts(posts);
       status = 200;
-      message = item;
+      message = post;
       break;
     }
   }
@@ -262,17 +269,17 @@ defineRoute("PATCH", "/posts/user/:id", (req, res) => {
   const postId = Number(req.body.id);
 
   let status = 404;
-  let message = "post not found";
+  let message = "Post not found";
 
-  for (let item of posts) {
-    if (userId === item.userId && postId === item.id) {
-      item.title = req.body.title || item.title;
-      item.body = req.body.body || item.body;
-      item.reactions = Number(req.body.reactions) || item.reactions;
-      item.tags = req.body.tags || item.tags;
+  for (let post of posts) {
+    if (userId === post.userId && postId === post.id && !post.deleted) {
+      post.title = req.body.title || post.title;
+      post.body = req.body.body || post.body;
+      post.reactions = Number(req.body.reactions) || post.reactions;
+      post.tags = req.body.tags || post.tags;
       savePosts(posts);
       status = 200;
-      message = item;
+      message = post;
       break;
     }
   }
@@ -283,19 +290,26 @@ defineRoute("PATCH", "/posts/user/:id", (req, res) => {
 
 defineRoute("DELETE", "/posts/:id", (req, res) => {
   const postId = Number(req.params.id);
-  const getPost = posts.find((post) => postId === post.id);
+  const getPost = posts.find((post) => postId === post.id && !post.deleted);
   const indexOfPost = posts.indexOf(getPost);
 
-  let status = 200;
-  let message = "Post deleted";
+  let status = 400;
+  let message = "Post delete failed";
 
-  if (!getPost) {
-    status = 404;
-    message = "Post not found";
+  if (getPost) {
+    getPost.deleted = true;
+
+    for (const [index, post] of posts.entries()) {
+      if (post.id === getPost.id) {
+        posts[index] = getPost;
+        savePosts(posts);
+        break;
+      }
+    }
+
+    status = 200;
+    message = "Post deleted successfully";
   }
-
-  posts.splice(indexOfPost, 1);
-  savePosts(posts);
 
   res.writeHead(status, { "Content-type": "application/json" });
   res.end(JSON.stringify(message));
