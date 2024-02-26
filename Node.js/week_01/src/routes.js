@@ -291,7 +291,6 @@ defineRoute("PATCH", "/posts/user/:id", (req, res) => {
 defineRoute("DELETE", "/posts/:id", (req, res) => {
   const postId = Number(req.params.id);
   const getPost = posts.find((post) => postId === post.id && !post.deleted);
-  const indexOfPost = posts.indexOf(getPost);
 
   let status = 400;
   let message = "Post delete failed";
