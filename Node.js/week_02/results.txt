@@ -1,1 +1,7 @@
 
+ Total Salary: 700044052
+ Average Salary: 70004.4052
+ police officer have the Minimun Salary: 40049,doctor have the Minimun Salary: 40004,worker have the Minimun Salary: 40015,firefighter have the Minimun Salary: 40001,developer have the Minimun Salary: 40019 
+ firefighter have the Maximum Salary: 99987,police officer have the Maximum Salary: 99984,worker have the Maximum Salary: 99983,developer have the Maximum Salary: 99987,doctor have the Maximum Salary: 99998
+ Minimun age: 20
+ Maximum age: 70 
