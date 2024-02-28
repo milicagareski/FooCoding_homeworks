@@ -1,0 +1,6 @@
+ Total Salary: 700044052
+ Average Salary: 70004.4052
+ PROFESSION_NAME have the Minimun Salary: [object Object],[object Object],[object Object],[object Object],[object Object] 
+ PROFESSION_NAME have the Maximum Salary: [object Object],[object Object],[object Object],[object Object],[object Object]
+ Minimun age: 20
+ Maximum age: 20 
