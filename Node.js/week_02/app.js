@@ -25,12 +25,20 @@ const readData = function () {
     .on("end", () => {
       const getTotalSalary = totalSalary(users).toString();
       const getAverageSalary = averageSalary(users).toString();
-      const getMinSalary = minSalary(users).toString();
-      const getMaxSalary = maxSalary(users).toString();
+      const getMinSalary = minSalary(users);
+      const getMaxSalary = maxSalary(users);
       const getMinAge = minAge(users).toString();
       const getMaxAge = maxAge(users).toString();
 
-      const dataToBeWritten = ` Total Salary: ${getTotalSalary}\n Average Salary: ${getAverageSalary}\n PROFESSION_NAME have the Minimun Salary: ${getMinSalary} \n PROFESSION_NAME have the Maximum Salary: ${getMaxSalary}\n Minimun age: ${getMinAge}\n Maximum age: ${getMinAge} \n`;
+      const setMinSalary = getMinSalary.map((element) => {
+        return `${element.profession} have the Minimun Salary: ${element.salary}`;
+      });
+
+      const setMaxSalary = getMaxSalary.map((element) => {
+        return `${element.profession} have the Maximum Salary: ${element.salary}`;
+      });
+
+      const dataToBeWritten = ` Total Salary: ${getTotalSalary}\n Average Salary: ${getAverageSalary}\n ${setMinSalary} \n ${setMaxSalary}\n Minimun age: ${getMinAge}\n Maximum age: ${getMaxAge} \n`;
 
       writeFile.write(dataToBeWritten);
     })
