@@ -24,21 +24,11 @@ const readData = function () {
     })
     .on("end", () => {
       const getTotalSalary = totalSalary(users).toString();
-
       const getAverageSalary = averageSalary(users).toString();
-      // console.log(getAverageSalary);
-
       const getMinSalary = minSalary(users).toString();
-      // console.log(getMinSalary);
-
       const getMaxSalary = maxSalary(users).toString();
-      // console.log(getMaxSalary);
-
       const getMinAge = minAge(users).toString();
-      // console.log(getMinAge);
-
       const getMaxAge = maxAge(users).toString();
-      // console.log(getMaxAge);
 
       const dataToBeWritten = ` Total Salary: ${getTotalSalary}\n Average Salary: ${getAverageSalary}\n PROFESSION_NAME have the Minimun Salary: ${getMinSalary} \n PROFESSION_NAME have the Maximum Salary: ${getMaxSalary}\n Minimun age: ${getMinAge}\n Maximum age: ${getMinAge} \n`;
 
