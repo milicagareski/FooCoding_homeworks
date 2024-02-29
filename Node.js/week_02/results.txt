@@ -1,4 +1,3 @@
-
  Total Salary: 700044052
  Average Salary: 70004.4052
  police officer have the Minimun Salary: 40049,doctor have the Minimun Salary: 40004,worker have the Minimun Salary: 40015,firefighter have the Minimun Salary: 40001,developer have the Minimun Salary: 40019 
