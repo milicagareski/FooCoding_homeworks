@@ -6,6 +6,7 @@ const minSalary = require("./utils/minSalary");
 const maxSalary = require("./utils/maxSalary");
 const minAge = require("./utils/minAge");
 const maxAge = require("./utils/maxAge");
+const customParser = require("./utils/csv-parser");
 
 const readData = function () {
   const users = [];
@@ -13,19 +14,17 @@ const readData = function () {
 
   const readFile = fs.createReadStream(__dirname + "/users-data.csv", "utf8");
 
-  const writeFile = fs.createWriteStream(__dirname + "/results.txt", {
-    flags: "a",
-  });
+  const writeFile = fs.createWriteStream(__dirname + "/results.txt");
 
   readFile
     .on("data", (chunk) => {
       data += chunk;
     })
     .on("end", () => {
-      const getUsers = data.trim().split("\r\n").splice(1);
+      const getUsers = data.split("\r\n").splice(1);
+
       getUsers.forEach((user) => {
-        user = user.replace(", ", "| ");
-        let defineUser = user.split(",");
+        let defineUser = customParser(user);
         if (defineUser.length === 9) {
           const user = {
             name: defineUser[1],
