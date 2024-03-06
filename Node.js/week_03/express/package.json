@@ -1,0 +1,17 @@
+{
+  "name": "express_week_03",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --watch src/server.js"
+  },
+  "author": "Milica Gareski",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.3",
+    "joi": "^17.12.2",
+    "uuid": "^9.0.1"
+  }
+}
