@@ -8,6 +8,10 @@ const taskSchema = joi.object({
   dueDate: joi.string().required(),
 });
 
+const validateIdSchema = joi.object({
+  id: joi.string().required(),
+});
+
 let todos = [];
 
 exports.getAllTasks = (req, res) => {
@@ -16,28 +20,33 @@ exports.getAllTasks = (req, res) => {
     if (filteredTodos) {
       res.status(200).json(filteredTodos);
     } else {
-      res.status(400).json("Tasks are not found");
+      res.status(404).json("Tasks are not found");
     }
   });
 };
 
 exports.getTaskById = (req, res) => {
-  const taskId = req.params.id;
+  const { error, value } = validateIdSchema.validate(req.params);
 
+  if (error) {
+    return res.status(400).json({ message: error.details[0].message });
+  }
   todoModel.readTasksFromFile((todos) => {
+    taskId = value.id;
     const foundTask = todos.find(
       (todo) => todo.id === taskId && !todo.isDeleted
     );
     if (foundTask) {
       res.status(200).json(foundTask);
     } else {
-      res.status(400).json("Task is not found");
+      res.status(404).json("Task is not found");
     }
   });
 };
 
 exports.createTask = (req, res, next) => {
   const { error, value } = taskSchema.validate(req.body);
+
   if (error) {
     return res.status(400).json({ error: error.details[0].message });
   }
@@ -53,7 +62,7 @@ exports.createTask = (req, res, next) => {
       };
       todos.push(newTask);
       todoModel.writeTasksToFile(todos, () => {
-        res.status(200).json(newTask);
+        res.status(201).json(newTask);
       });
     }, next);
   }
@@ -83,17 +92,21 @@ exports.updateTask = (req, res, next) => {
 };
 
 exports.deleteTask = (req, res) => {
-  const taskId = req.params.id;
+  const { error, value } = validateIdSchema.validate(req.params);
+
+  if (error) {
+    return res.status(400).json({ message: error.details[0].message });
+  }
 
   todoModel.readTasksFromFile((todos) => {
     const foundTask = todos.find(
-      (todo) => todo.id === taskId && !todo.isDeleted
+      (todo) => todo.id === value.id && !todo.isDeleted
     );
     if (foundTask) {
       foundTask.isDeleted = true;
       res.status(200).json("Task deleted");
     } else {
-      res.status(400).json("Task is not found");
+      res.status(404).json("Task is not found");
     }
   });
 };
