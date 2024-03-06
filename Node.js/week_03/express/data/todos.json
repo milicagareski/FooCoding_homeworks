@@ -2,92 +2,22 @@
   {
     "id": "f1335564-4e61-40d8-b7cb-0b3e9e83cd7d",
     "todo": "Learn REACT",
-    "priority": "VERY HIGH",
+    "priority": "HIGH",
     "dueDate": "2034-04-30",
     "isDeleted": true
   },
   {
     "id": "9952e74a-5292-4965-b1cb-b203449e6f81",
     "todo": "Learn RCT",
-    "priority": "HIGH",
+    "priority": "MEDIUM",
     "dueDate": "22",
     "isDeleted": false
   },
   {
     "id": "7f9d9ead-5ed3-4c14-8fa2-4d637773a018",
     "todo": "Learn REACT",
-    "priority": "VER HIGH",
+    "priority": "LOW",
     "dueDate": "2034-04-30",
-    "isDeleted": false
-  },
-  {
-    "id": "262137de-2a0b-4421-9427-77fce6c8f94a",
-    "todo": "Learn REACT",
-    "priority": "VERY HIGH",
-    "dueDate": "2034-04-30",
-    "isDeleted": false
-  },
-  {
-    "id": "fdfdb740-7542-45b7-8130-2f9249f50eca",
-    "todo": "Learn REACT",
-    "priority": "VERY HIGH",
-    "dueDate": "2034-04-30",
-    "isDeleted": false
-  },
-  {
-    "id": "9aaaf056-494b-4d22-81a9-861d3ba984a4",
-    "todo": "Learn REACT",
-    "priority": "VERY HIGH",
-    "dueDate": "2034-04-30",
-    "isDeleted": false
-  },
-  {
-    "id": "01d3e4fd-2995-4d01-a0df-7328f2fac6d3",
-    "todo": "Learn REACT",
-    "priority": "VERY HIGH",
-    "dueDate": "2034-04-30",
-    "isDeleted": false
-  },
-  {
-    "id": "16582fd3-5559-4834-95da-07ee706fa757",
-    "todo": "Learn RCT",
-    "priority": "VERY HIGH",
-    "dueDate": "2034--30",
-    "isDeleted": false
-  },
-  {
-    "id": "5199214b-c5d9-468f-b160-46159d42573e",
-    "todo": "Learn RCT",
-    "priority": "VERY HIGH",
-    "dueDate": "2034--30",
-    "isDeleted": false
-  },
-  {
-    "id": "7cbff81f-3e3e-43ea-a41d-a1ed6ab4abcd",
-    "todo": "Learn RCT",
-    "priority": "VERY HIGH",
-    "dueDate": "2034--30",
-    "isDeleted": false
-  },
-  {
-    "id": "75ea2a89-713b-43bc-a2d7-0dd800fb8afd",
-    "todo": "Learn RCT",
-    "priority": "HIGH",
-    "dueDate": "2034--30",
-    "isDeleted": false
-  },
-  {
-    "id": "b4cc82fb-485c-4162-8d18-e55b9ddc83c1",
-    "todo": "Learn RCT",
-    "priority": "HIGH",
-    "dueDate": "22",
-    "isDeleted": false
-  },
-  {
-    "id": "63b37993-fb57-4cbe-98a7-35374c93f778",
-    "todo": "Learn RCT",
-    "priority": "HIGH",
-    "dueDate": "22",
     "isDeleted": false
   }
 ]

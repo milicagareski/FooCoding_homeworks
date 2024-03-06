@@ -1,11 +1,14 @@
+// This file is controller for handling CRUD operations.
+
 const { v4: uuidv4 } = require("uuid");
 let todoModel = require("../utils/model");
 const joi = require("joi");
 
+// define Joi schemas for data validation and ID
 const taskSchema = joi.object({
   todo: joi.string().required(),
-  priority: joi.string().valid("HIGH", "Medium", "Low").required(),
-  dueDate: joi.string().required(),
+  priority: joi.string().valid("HIGH", "MEDIUM", "LOW").required(),
+  dueDate: joi.date().iso().required(),
 });
 
 const validateIdSchema = joi.object({
@@ -14,6 +17,7 @@ const validateIdSchema = joi.object({
 
 let todos = [];
 
+// Function to retrieve all tasks
 exports.getAllTasks = (req, res) => {
   todoModel.readTasksFromFile((todos) => {
     const filteredTodos = todos.filter((todo) => !todo.isDeleted);
@@ -25,6 +29,7 @@ exports.getAllTasks = (req, res) => {
   });
 };
 
+// Function to retrieve a task by its ID
 exports.getTaskById = (req, res) => {
   const { error, value } = validateIdSchema.validate(req.params);
 
@@ -44,6 +49,7 @@ exports.getTaskById = (req, res) => {
   });
 };
 
+// Function to create a task
 exports.createTask = (req, res, next) => {
   const { error, value } = taskSchema.validate(req.body);
 
@@ -68,6 +74,7 @@ exports.createTask = (req, res, next) => {
   }
 };
 
+// Function to update a task
 exports.updateTask = (req, res, next) => {
   const taskId = req.params.id;
 
@@ -91,6 +98,7 @@ exports.updateTask = (req, res, next) => {
   }, next);
 };
 
+// Function to delete a task
 exports.deleteTask = (req, res) => {
   const { error, value } = validateIdSchema.validate(req.params);
 
