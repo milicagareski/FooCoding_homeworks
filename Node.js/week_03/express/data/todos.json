@@ -1,51 +1,30 @@
 [
   {
-    "id": "f1335564-4e61-40d8-b7cb-0b3e9e83cd7d",
-    "todo": "Learn REACT",
-    "priority": "HIGH",
-    "dueDate": "2034-04-30",
-    "isDeleted": true
-  },
-  {
-    "id": "9952e74a-5292-4965-b1cb-b203449e6f81",
-    "todo": "Learn REACT",
-    "priority": "LOW",
-    "dueDate": "2024-03-30",
-    "isDeleted": false
-  },
-  {
-    "id": "7f9d9ead-5ed3-4c14-8fa2-4d637773a018",
-    "todo": "Learn REACT",
-    "priority": "LOW",
-    "dueDate": "2034-04-30",
-    "isDeleted": false
-  },
-  {
-    "id": "6cbc26b4-037f-4647-a4ba-35d804c482d1",
-    "todo": "Learn RCT",
-    "priority": "HIGH",
-    "dueDate": "2023-04-30",
-    "isDeleted": false
-  },
-  {
-    "id": "adf0407b-083f-46c0-b595-98fad801ca76",
-    "todo": "Learn RCT",
-    "priority": "HIGH",
-    "dueDate": "2023-04-30",
-    "isDeleted": false
-  },
-  {
-    "id": "99a1f1ef-f117-4d93-840a-a41271585470",
-    "todo": "Learn RCT",
-    "priority": "HIGH",
-    "dueDate": "2023-04-30",
-    "isDeleted": false
-  },
-  {
     "id": "c7860993-7c54-481b-88bd-9dc00fab4b19",
     "todo": "Learn REACT",
+    "priority": "MEDIUM",
+    "dueDate": "2024-03-31",
+    "isDeleted": false
+  },
+  {
+    "id": "be21f88b-ba6c-4ffd-998f-a2ee512e0834",
+    "todo": "Learn NODE JS",
+    "priority": "HIGH",
+    "dueDate": "2024-04-30",
+    "isDeleted": false
+  },
+  {
+    "id": "8990d474-49f6-4964-b058-cffb0cc7bf89",
+    "todo": "Learn REACT",
+    "priority": "MEDIUM",
+    "dueDate": "2024-03-31",
+    "isDeleted": false
+  },
+  {
+    "id": "b02234fd-0d90-43a0-bcde-95b439c7bd5c",
+    "todo": "Learn Swedish",
     "priority": "LOW",
-    "dueDate": "2024-03-30",
+    "dueDate": "2025-03-31",
     "isDeleted": false
   }
 ]
