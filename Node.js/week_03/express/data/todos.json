@@ -8,9 +8,9 @@
   },
   {
     "id": "9952e74a-5292-4965-b1cb-b203449e6f81",
-    "todo": "Learn RCT",
-    "priority": "MEDIUM",
-    "dueDate": "22",
+    "todo": "Learn REACT",
+    "priority": "LOW",
+    "dueDate": "2024-03-30",
     "isDeleted": false
   },
   {
@@ -18,6 +18,34 @@
     "todo": "Learn REACT",
     "priority": "LOW",
     "dueDate": "2034-04-30",
+    "isDeleted": false
+  },
+  {
+    "id": "6cbc26b4-037f-4647-a4ba-35d804c482d1",
+    "todo": "Learn RCT",
+    "priority": "HIGH",
+    "dueDate": "2023-04-30",
+    "isDeleted": false
+  },
+  {
+    "id": "adf0407b-083f-46c0-b595-98fad801ca76",
+    "todo": "Learn RCT",
+    "priority": "HIGH",
+    "dueDate": "2023-04-30",
+    "isDeleted": false
+  },
+  {
+    "id": "99a1f1ef-f117-4d93-840a-a41271585470",
+    "todo": "Learn RCT",
+    "priority": "HIGH",
+    "dueDate": "2023-04-30",
+    "isDeleted": false
+  },
+  {
+    "id": "c7860993-7c54-481b-88bd-9dc00fab4b19",
+    "todo": "Learn REACT",
+    "priority": "LOW",
+    "dueDate": "2024-03-30",
     "isDeleted": false
   }
 ]

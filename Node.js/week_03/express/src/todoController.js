@@ -24,7 +24,7 @@ exports.getAllTasks = (req, res) => {
     if (filteredTodos) {
       res.status(200).json(filteredTodos);
     } else {
-      res.status(404).json("Tasks are not found");
+      res.status(404).json("Tasks not found");
     }
   });
 };
@@ -44,7 +44,7 @@ exports.getTaskById = (req, res) => {
     if (foundTask) {
       res.status(200).json(foundTask);
     } else {
-      res.status(404).json("Task is not found");
+      res.status(404).json("Task not found");
     }
   });
 };
@@ -71,6 +71,8 @@ exports.createTask = (req, res, next) => {
         res.status(201).json(newTask);
       });
     }, next);
+  } else {
+    res.status(400).json({ error: "Missing required fields" });
   }
 };
 
@@ -114,7 +116,7 @@ exports.deleteTask = (req, res) => {
       foundTask.isDeleted = true;
       res.status(200).json("Task deleted");
     } else {
-      res.status(404).json("Task is not found");
+      res.status(404).json("Task not found");
     }
   });
 };
