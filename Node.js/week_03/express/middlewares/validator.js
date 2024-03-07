@@ -11,11 +11,9 @@ exports.validateData = (req, res, next) => {
 
   // error handling
   const { error, value } = taskSchema.validate(req.body);
-
   if (error) {
     return res.status(400).json({ error: error.details[0].message });
   }
-
   // calling the next middleware
   next();
 };
@@ -28,11 +26,9 @@ exports.validateID = (req, res, next) => {
 
   // error handling
   const { error, value } = validateIdSchema.validate(req.params);
-
   if (error) {
     return res.status(400).json({ message: error.details[0].message });
   }
-
   // calling the next validator
   next();
 };
