@@ -10,7 +10,7 @@ server.use(express.json());
 // Include routes defined in the todosRoutes module
 server.use("/todos", todosRoutes);
 
-// Start the server the defined port
+// Start the server in the defined port
 server.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });

@@ -1,11 +1,10 @@
 const express = require("express");
 const validator = require("../middlewares/validator");
+// Import the todoController module where are defined different routes
+const todoController = require("./todoController");
 
 // Create a new router instance
 const router = express.Router();
-
-// Import the todoController module where are defined different routes
-const todoController = require("./todoController");
 
 // Define routes and associate them with corresponding controller methods and validator methods
 router.get("/", todoController.getAllTasks);

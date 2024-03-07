@@ -2,7 +2,7 @@
   {
     "id": "c7860993-7c54-481b-88bd-9dc00fab4b19",
     "todo": "Learn Swedish",
-    "priority": "LOW",
+    "priority": "MEDIUM",
     "dueDate": "2025-03-31",
     "isDeleted": false
   },
@@ -36,6 +36,20 @@
   },
   {
     "id": "55b17d61-f796-4576-a5d2-fe02e245feba",
+    "todo": "Learn Swedish",
+    "priority": "LOW",
+    "dueDate": "2025-03-31",
+    "isDeleted": false
+  },
+  {
+    "id": "3d70e19d-d7fb-4091-b5c4-a67a44ad7c47",
+    "todo": "Learn Swedish",
+    "priority": "LOW",
+    "dueDate": "2025-03-31",
+    "isDeleted": false
+  },
+  {
+    "id": "348f9b9b-f68a-4e9c-8d74-cc6ad21bbd9b",
     "todo": "Learn Swedish",
     "priority": "LOW",
     "dueDate": "2025-03-31",
