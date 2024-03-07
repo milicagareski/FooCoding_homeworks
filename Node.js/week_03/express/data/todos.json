@@ -1,9 +1,9 @@
 [
   {
     "id": "c7860993-7c54-481b-88bd-9dc00fab4b19",
-    "todo": "Learn REACT",
-    "priority": "MEDIUM",
-    "dueDate": "2024-03-31",
+    "todo": "Learn Swedish",
+    "priority": "LOW",
+    "dueDate": "2025-03-31",
     "isDeleted": false
   },
   {
@@ -22,6 +22,20 @@
   },
   {
     "id": "b02234fd-0d90-43a0-bcde-95b439c7bd5c",
+    "todo": "Learn Swedish",
+    "priority": "LOW",
+    "dueDate": "2025-03-31",
+    "isDeleted": false
+  },
+  {
+    "id": "39268440-7caa-4ac2-b6d1-e5c6ce286622",
+    "todo": "Learn Python",
+    "priority": "HIGH",
+    "dueDate": "2025-03-31",
+    "isDeleted": false
+  },
+  {
+    "id": "55b17d61-f796-4576-a5d2-fe02e245feba",
     "todo": "Learn Swedish",
     "priority": "LOW",
     "dueDate": "2025-03-31",

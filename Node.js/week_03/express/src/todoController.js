@@ -1,21 +1,7 @@
 // This file is controller for handling CRUD operations.
 
 const { v4: uuidv4 } = require("uuid");
-let todoModel = require("../utils/model");
-const joi = require("joi");
-
-// define Joi schemas for data validation and ID
-const taskSchema = joi.object({
-  todo: joi.string().required(),
-  priority: joi.string().valid("HIGH", "MEDIUM", "LOW").required(),
-  dueDate: joi.date().iso().required(),
-});
-
-const validateIdSchema = joi.object({
-  id: joi.string().required(),
-});
-
-let todos = [];
+const todoModel = require("../utils/model");
 
 // Function to retrieve all tasks
 exports.getAllTasks = (req, res) => {
@@ -31,16 +17,12 @@ exports.getAllTasks = (req, res) => {
 
 // Function to retrieve a task by its ID
 exports.getTaskById = (req, res) => {
-  const { error, value } = validateIdSchema.validate(req.params);
-
-  if (error) {
-    return res.status(400).json({ message: error.details[0].message });
-  }
   todoModel.readTasksFromFile((todos) => {
-    taskId = value.id;
+    taskId = req.params.id;
     const foundTask = todos.find(
       (todo) => todo.id === taskId && !todo.isDeleted
     );
+
     if (foundTask) {
       res.status(200).json(foundTask);
     } else {
@@ -50,12 +32,7 @@ exports.getTaskById = (req, res) => {
 };
 
 // Function to create a task
-exports.createTask = (req, res, next) => {
-  const { error, value } = taskSchema.validate(req.body);
-
-  if (error) {
-    return res.status(400).json({ error: error.details[0].message });
-  }
+exports.createTask = (req, res) => {
   const { todo, priority, dueDate } = req.body;
   if (todo && priority && dueDate) {
     todoModel.readTasksFromFile((todos) => {
@@ -70,23 +47,17 @@ exports.createTask = (req, res, next) => {
       todoModel.writeTasksToFile(todos, () => {
         res.status(201).json(newTask);
       });
-    }, next);
+    });
   } else {
     res.status(400).json({ error: "Missing required fields" });
   }
 };
 
 // Function to update a task
-exports.updateTask = (req, res, next) => {
-  const taskId = req.params.id;
-
-  const { error, value } = taskSchema.validate(req.body);
-  if (error) {
-    return res.status(400).json({ error: error.details[0].message });
-  }
+exports.updateTask = (req, res) => {
   todoModel.readTasksFromFile((todos) => {
     const foundTask = todos.find(
-      (todo) => todo.id === taskId && !todo.isDeleted
+      (todo) => todo.id === req.params.id && !todo.isDeleted
     );
     if (foundTask) {
       foundTask.todo = req.body.todo || foundTask.todo;
@@ -97,20 +68,14 @@ exports.updateTask = (req, res, next) => {
         res.status(200).json(foundTask);
       });
     }
-  }, next);
+  });
 };
 
 // Function to delete a task
 exports.deleteTask = (req, res) => {
-  const { error, value } = validateIdSchema.validate(req.params);
-
-  if (error) {
-    return res.status(400).json({ message: error.details[0].message });
-  }
-
   todoModel.readTasksFromFile((todos) => {
     const foundTask = todos.find(
-      (todo) => todo.id === value.id && !todo.isDeleted
+      (todo) => todo.id === req.params.id && !todo.isDeleted
     );
     if (foundTask) {
       foundTask.isDeleted = true;
