@@ -1,9 +1,9 @@
 [
   {
     "id": "c7860993-7c54-481b-88bd-9dc00fab4b19",
-    "todo": "Learn Swedish",
+    "todo": "LEARN NODE JS",
     "priority": "MEDIUM",
-    "dueDate": "2025-03-31",
+    "dueDate": "2024-04-30",
     "isDeleted": false
   },
   {
@@ -53,6 +53,97 @@
     "todo": "Learn Swedish",
     "priority": "LOW",
     "dueDate": "2025-03-31",
+    "isDeleted": false
+  },
+  {
+    "id": "557bd4b7-866f-492d-9251-45a6938a2fca",
+    "todo": "learn Node",
+    "priority": "LOW",
+    "dueDate": "2023-02-30",
+    "isDeleted": false
+  },
+  {
+    "id": "3061d9e2-ba27-49a3-b282-c5a16ee58908",
+    "todo": "learn Node",
+    "priority": "LOW",
+    "dueDate": "2023-02-30",
+    "isDeleted": false
+  },
+  {
+    "id": "b0c7deab-fe88-4e72-b628-7fb42eed7807",
+    "todo": "learn Node",
+    "priority": "LOW",
+    "dueDate": "2023-02-30",
+    "isDeleted": false
+  },
+  {
+    "id": "06e17013-a82f-45e3-8193-9879436029f5",
+    "todo": "Learn",
+    "priority": "HIGH",
+    "dueDate": "2028-05-03",
+    "isDeleted": false
+  },
+  {
+    "id": "98a68e3d-9b06-4593-8518-285f602c81c0",
+    "todo": "Learn",
+    "priority": "HIGH",
+    "dueDate": "2028-05-03",
+    "isDeleted": false
+  },
+  {
+    "id": "d06b4232-11d4-4ae4-87db-316455d2ba90",
+    "todo": "Learn",
+    "priority": "HIGH",
+    "dueDate": "2028-05-03",
+    "isDeleted": false
+  },
+  {
+    "id": "df202f26-f9f4-4f49-b113-1822adb95f11",
+    "todo": "Learn",
+    "priority": "HIGH",
+    "dueDate": "2028-05-03",
+    "isDeleted": false
+  },
+  {
+    "id": "9cce437b-58a4-465f-9422-aa943b05db78",
+    "todo": "cooking",
+    "priority": "LOW",
+    "dueDate": "2024-03-30",
+    "isDeleted": false
+  },
+  {
+    "id": "2e5c8a3f-9c81-45f1-9123-fd96df99dcda",
+    "todo": "cooking",
+    "priority": "LOW",
+    "dueDate": "2024-03-30",
+    "isDeleted": false
+  },
+  {
+    "id": "c8fa258d-8652-48c7-832b-7b8d46160ff8",
+    "todo": "cooking",
+    "priority": "LOW",
+    "dueDate": "2024-03-30",
+    "isDeleted": false
+  },
+  {
+    "id": "380b0e15-610f-428e-9e2e-40d32d266b78",
+    "todo": "LEARN NODE JS",
+    "priority": "MEDIUM",
+    "dueDate": "2024-04-30",
+    "isDeleted": false
+  },
+  {
+    "id": "de7400f6-a4a7-4f8d-8985-c7b1333e0eb0",
+    "todo": "LEARN NODE JS",
+    "priority": "MEDIUM",
+    "dueDate": "2024-04-30",
+    "isDeleted": false
+  },
+  {
+    "id": "ec602c87-a032-4fb2-984f-54466b732a81",
+    "todo": "LEARN NODE JS",
+    "priority": "MEDIUM",
+    "dueDate": "2024-04-30",
     "isDeleted": false
   }
 ]
