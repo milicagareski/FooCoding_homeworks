@@ -1,55 +1,61 @@
-const readline = require("node:readline");
-
+const readline = require("readline");
 const {
-  postTask,
   getTasks,
   getTaskById,
+  postTask,
   updateTask,
   deleteTask,
 } = require("./todosFunctions");
-const process = require("node:process");
 
 const line = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
 });
 
-const command = process.argv[2];
+// Display a prompt to the user
+line.setPrompt("Your command: ");
+line.prompt();
 
-switch (command) {
-  case "get":
-    getTasks();
-    break;
-  case "getById":
-    const taskId = process.argv[3];
-    getTaskById(taskId);
-    break;
-  case "post":
-    const todo = process.argv[3];
-    const priority = process.argv[4];
-    const dueDate = process.argv[5];
-    postTask(todo, priority, dueDate);
-    break;
-  case "change":
-    const updatedID = process.argv[3];
-    const updatedTodo = process.argv[4];
-    const updatedPriority = process.argv[5];
-    const updatedDueDate = process.argv[6];
-    updateTask(updatedID, updatedTodo, updatedPriority, updatedDueDate);
-    break;
-  case "delete":
-    const taskIdToDelete = process.argv[3];
-    deleteTask(taskIdToDelete);
-    break;
-  default:
-    console.log("Invalid command.Try again");
-}
+// Listen for user input
 
-line.question(">", (answer) => {
-  if (answer === "quit") {
-    process.exit(0);
-  } else {
-    console.log("Unknown command.");
-    // line.close();
+line.on("line", async (input) => {
+  const [command, ...args] = input.trim().split(" ");
+
+  switch (command) {
+    case "get":
+      const tasks = await getTasks();
+      console.log(tasks);
+      break;
+    case "getTask":
+      const taskId = args[0];
+      const task = await getTaskById(taskId);
+      console.log(task);
+      break;
+    case "post":
+      const [todo, priority, dueDate] = args;
+      const newTask = await postTask(todo, priority, dueDate);
+      console.log(newTask);
+      break;
+    case "update":
+      const [updatedID, updatedTodo, updatedPriority, updatedDueDate] = args;
+      const changeTask = await updateTask(
+        updatedID,
+        updatedTodo,
+        updatedPriority,
+        updatedDueDate
+      );
+      console.log(changeTask);
+      break;
+    case "delete":
+      const taskIdToDelete = args[0];
+      const deleted = await deleteTask(taskIdToDelete);
+      console.log(deleted);
+      break;
+    default:
+      console.log("Invalid command. Please try again.");
+      break;
+    case "end":
+      process.exit(0);
   }
+  line.prompt();
 });

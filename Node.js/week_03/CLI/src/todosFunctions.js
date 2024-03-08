@@ -1,64 +1,99 @@
-const axios = require("axios");
-
 async function getTasks() {
   try {
-    const response = await axios.get("http://localhost:5000/todos");
-    console.log(response.data);
+    const response = await fetch("http://localhost:5000/todos");
+    if (!response.ok) {
+      throw new Error("Error fetching tasks");
+    }
+    const tasks = await response.json();
+    // console.log(tasks);
+    return tasks;
   } catch (error) {
-    console.error("Tasks not found:", error.message);
+    console.error("Error:", error.message);
+    throw error;
   }
 }
 
 async function getTaskById(taskId) {
   try {
-    const response = await axios.get(`http://localhost:5000/todos/${taskId}`);
-    console.log(response.data);
+    const response = await fetch(`http://localhost:5000/todos/${taskId}`);
+    if (!response.ok) {
+      throw new Error("Error fetching task");
+    }
+    const tasks = await response.json();
+    // console.log(tasks);
+    return tasks;
   } catch (error) {
-    console.error("Task not found:", error.message);
+    console.error("Error:", error.message);
+    throw error;
   }
 }
 
 async function postTask(todo, priority, dueDate) {
   try {
-    const response = await axios.post("http://localhost:5000/todos", {
-      todo,
-      priority,
-      dueDate,
+    const response = await fetch("http://localhost:5000/todos", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        todo,
+        priority,
+        dueDate,
+      }),
     });
-    console.log("New task:", response.data);
+
+    if (!response.ok) {
+      throw new Error("Error creating new task");
+    }
+    const newTask = await response.json();
+    return newTask;
   } catch (error) {
-    console.error("Task can not be posted:", error.message);
+    console.error("Error:", error.message);
+    throw error;
   }
 }
 
 async function updateTask(id, todo, priority, dueDate) {
   try {
-    const response = await axios.patch(`http://localhost:5000/todos/${id}`, {
-      todo,
-      priority,
-      dueDate,
+    const response = await fetch(`http://localhost:5000/todos/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        todo,
+        priority,
+        dueDate,
+      }),
     });
-    console.log("Task updated:", response.data);
+
+    if (!response.ok) {
+      throw new Error("Error updating task");
+    }
+
+    const updatedTask = await response.json();
+    return updatedTask;
   } catch (error) {
-    console.error("Task can not be updated", error.message);
+    console.error("Error:", error.message);
+    throw error;
   }
 }
 
-async function deleteTask(taskID) {
+async function deleteTask(ID) {
   try {
-    const response = await axios.delete(
-      `http://localhost:5000/todos/${taskID}`
-    );
-    console.log(response.data);
+    const response = await fetch(`http://localhost:5000/todos/${ID}`, {
+      method: "DELETE",
+    });
+
+    if (!response.ok) {
+      throw new Error("Error deleting task");
+    }
+
+    console.log("Task deleted");
   } catch (error) {
-    console.error("Task can not be deleted", error.message);
+    console.error("Error:", error.message);
+    throw error;
   }
 }
 
-async function leaveApp(quit) {
-  try {
-  } catch (error) {
-    console.error("command unknown.");
-  }
-}
 module.exports = { getTasks, getTaskById, postTask, updateTask, deleteTask };
