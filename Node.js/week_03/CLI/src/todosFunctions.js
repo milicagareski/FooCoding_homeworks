@@ -5,10 +5,9 @@ async function getTasks() {
       throw new Error("Error fetching tasks");
     }
     const tasks = await response.json();
-    // console.log(tasks);
     return tasks;
   } catch (error) {
-    console.error("Error:", error.message);
+    console.error("\x1b[31m", "Error:", error.message, "\x1b[0m");
     throw error;
   }
 }
@@ -19,11 +18,10 @@ async function getTaskById(taskId) {
     if (!response.ok) {
       throw new Error("Error fetching task");
     }
-    const tasks = await response.json();
-    // console.log(tasks);
-    return tasks;
+    const task = await response.json();
+    return task;
   } catch (error) {
-    console.error("Error:", error.message);
+    console.error("\x1b[31m", "Error:", error.message, "\x1b[0m");
     throw error;
   }
 }
@@ -48,7 +46,7 @@ async function postTask(todo, priority, dueDate) {
     const newTask = await response.json();
     return newTask;
   } catch (error) {
-    console.error("Error:", error.message);
+    console.error("\x1b[31m", "Error:", error.message, "\x1b[0m");
     throw error;
   }
 }
@@ -74,24 +72,23 @@ async function updateTask(id, todo, priority, dueDate) {
     const updatedTask = await response.json();
     return updatedTask;
   } catch (error) {
-    console.error("Error:", error.message);
+    console.error("\x1b[31m", "Error:", error.message, "\x1b[0m");
     throw error;
   }
 }
 
-async function deleteTask(ID) {
+async function deleteTask(id) {
   try {
-    const response = await fetch(`http://localhost:5000/todos/${ID}`, {
+    const response = await fetch(`http://localhost:5000/todos/${id}`, {
       method: "DELETE",
     });
 
     if (!response.ok) {
-      throw new Error("Error deleting task");
+      throw new Error("Failed to delete the task");
     }
-
-    console.log("Task deleted");
+    return "Task deleted";
   } catch (error) {
-    console.error("Error:", error.message);
+    console.error("\x1b[31m", "Error:", error.message, "\x1b[0m");
     throw error;
   }
 }
