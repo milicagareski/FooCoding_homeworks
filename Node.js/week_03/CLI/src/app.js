@@ -50,19 +50,26 @@ line.on("line", async (input) => {
         console.log(task);
         break;
       case "post":
-        if (args.length !== 3) {
+        if (args.length < 3) {
           throw new Error("Invalid number of arguments");
         }
-        const [todo, priority, dueDate] = args;
+        const todo = args.slice(0, -2).join(" ");
+        const priority = args[args.length - 2];
+        const dueDate = args[args.length - 1];
+
         const newTask = await postTask(todo, priority, dueDate);
         console.log(newTask);
         console.log("\x1b[32m", "NEW TASK CREATED", "\x1b[0m");
         break;
       case "update":
-        if (args.length !== 4) {
+        if (args.length < 4) {
           throw new Error("Invalid number of arguments");
         }
-        const [updatedID, updatedTodo, updatedPriority, updatedDueDate] = args;
+        const updatedID = args[0];
+        const updatedTodo = args.slice(1, -2).join(" ");
+        const updatedPriority = args[args.length - 2];
+        const updatedDueDate = args[args.length - 1];
+
         const changeTask = await updateTask(
           updatedID,
           updatedTodo,
