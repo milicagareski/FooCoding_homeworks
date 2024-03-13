@@ -18,7 +18,9 @@ async function getTaskById(taskId) {
     if (!response.ok) {
       throw new Error("Error fetching task");
     }
+
     const task = await response.json();
+
     return task;
   } catch (error) {
     console.error("\x1b[31m", "Error:", error.message, "\x1b[0m");

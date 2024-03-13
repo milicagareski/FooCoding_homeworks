@@ -13,7 +13,7 @@ const line = readline.createInterface({
 });
 
 // Display instructions on how to use each command.
-function commands() {
+function usage() {
   console.log("Commands:");
   console.log("get - Get all tasks");
   console.log("getTask <id> - Get task by ID");
@@ -23,7 +23,7 @@ function commands() {
   console.log("end - Quit the application");
 }
 
-commands();
+usage();
 
 // Display a prompt to the user
 
