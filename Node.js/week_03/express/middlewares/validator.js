@@ -27,7 +27,7 @@ exports.validateData = async (req, res, next) => {
 exports.validateID = async (req, res, next) => {
   try {
     const validateIdSchema = joi.object({
-      id: joi.string().required(),
+      id: joi.string().required().uuid(),
     });
 
     // error handling

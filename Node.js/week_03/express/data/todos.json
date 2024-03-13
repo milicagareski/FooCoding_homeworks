@@ -1,10 +1,10 @@
 [
   {
     "id": "c7860993-7c54-481b-88bd-9dc00fab4b19",
-    "todo": "Learn Swedish",
+    "todo": "learn Swedish",
     "priority": "MEDIUM",
-    "dueDate": "2025-03-31",
-    "isDeleted": false
+    "dueDate": "2024-04-04",
+    "isDeleted": true
   },
   {
     "id": "be21f88b-ba6c-4ffd-998f-a2ee512e0834",
@@ -14,17 +14,59 @@
     "isDeleted": false
   },
   {
-    "id": "8990d474-49f6-4964-b058-cffb0cc7bf89",
-    "todo": "Learn REACT",
-    "priority": "MEDIUM",
-    "dueDate": "2024-03-31",
-    "isDeleted": false
-  },
-  {
     "id": "b02234fd-0d90-43a0-bcde-95b439c7bd5c",
     "todo": "Learn Swedish",
     "priority": "LOW",
     "dueDate": "2025-03-31",
+    "isDeleted": false
+  },
+  {
+    "id": "95ab5a5a-f5b0-465c-9e5b-ffb4ba1c01fd",
+    "todo": "Learn Swedish",
+    "priority": "MEDIUM",
+    "dueDate": "2025-03-31",
+    "isDeleted": false
+  },
+  {
+    "id": "beaeeb5b-71fe-4ebe-a70a-cb43acdf3c47",
+    "todo": "Learn Spanish language",
+    "priority": "HIGH",
+    "dueDate": "2025-05-05",
+    "isDeleted": false
+  },
+  {
+    "id": "d12ff119-8190-44b3-bd7a-82c959a2d933",
+    "todo": "learn Node js",
+    "priority": "HIGH",
+    "dueDate": "2024-04-30",
+    "isDeleted": false
+  },
+  {
+    "id": "d2b6fca3-f297-4a29-9f31-c348cd30e9f3",
+    "todo": "Learn Node js",
+    "priority": "HIGH",
+    "dueDate": "2024-05-30",
+    "isDeleted": false
+  },
+  {
+    "id": "45d7f2d2-6618-4c80-8f5e-5d7d5e8f4562",
+    "todo": "Learn Node",
+    "priority": "MEDIUM",
+    "dueDate": "2025-03-31",
+    "isDeleted": false
+  },
+  {
+    "id": "ffad5aef-31c4-49c4-aba7-e9fbcd6e8b0a",
+    "todo": "learn Swedish",
+    "priority": "HIGH",
+    "dueDate": "2024-05-05",
+    "isDeleted": false
+  },
+  {
+    "id": "bb2a3a31-8b9d-4128-b42a-ad6effca7b5f",
+    "todo": "studing German",
+    "priority": "HIGH",
+    "dueDate": "2024-02-02",
     "isDeleted": false
   }
 ]

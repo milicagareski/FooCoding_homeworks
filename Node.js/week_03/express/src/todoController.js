@@ -43,24 +43,17 @@ exports.getTaskById = async (req, res) => {
 // Function to create a task
 exports.createTask = async (req, res) => {
   try {
-    const { todo, priority, dueDate } = req.body;
-    if (todo && priority && dueDate) {
-      todoModel.readTasksFromFile((todos) => {
-        const newTask = {
-          id: uuidv4(),
-          todo,
-          priority,
-          dueDate,
-          isDeleted: false,
-        };
-        todos.push(newTask);
-        todoModel.writeTasksToFile(todos, () => {
-          res.status(201).json(newTask);
-        });
+    todoModel.readTasksFromFile((todos) => {
+      const newTask = {
+        id: uuidv4(),
+        ...req.body,
+        isDeleted: false,
+      };
+      todos.push(newTask);
+      todoModel.writeTasksToFile(todos, () => {
+        res.status(201).json(newTask);
       });
-    } else {
-      res.status(400).json({ error: "Missing required fields" });
-    }
+    });
   } catch (err) {
     console.error("Error in validateData", err);
     res.status(500).json({ error: "Internal server error" });
@@ -99,10 +92,13 @@ exports.deleteTask = async (req, res) => {
       );
       if (foundTask) {
         foundTask.isDeleted = true;
-        res.status(200).json("Task deleted");
+        todoModel.writeTasksToFile(todos, () => {
+          res.status(200).json("Task deleted");
+        });
       } else {
         res.status(404).json("Task not found");
       }
+      console.log(foundTask.isDeleted);
     });
   } catch {
     console.error("Error in validateData", err);
