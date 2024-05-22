@@ -16,4 +16,4 @@
 
 [Portfolio_Project](https://milicagareski.github.io/portfolio/templates/)
 
-[REACT_TYPESCRIPT_PRIJECT](https://online-museum-of-art-react.onrender.com/)
+[REACT_TYPESCRIPT_PROJECT](https://online-museum-of-art-react.onrender.com/)
