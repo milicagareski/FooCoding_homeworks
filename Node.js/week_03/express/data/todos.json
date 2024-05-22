@@ -60,13 +60,13 @@
     "todo": "learn Swedish",
     "priority": "HIGH",
     "dueDate": "2024-05-05",
-    "isDeleted": false
+    "isDeleted": true
   },
   {
     "id": "bb2a3a31-8b9d-4128-b42a-ad6effca7b5f",
     "todo": "studing German",
     "priority": "HIGH",
     "dueDate": "2024-02-02",
-    "isDeleted": false
+    "isDeleted": true
   }
 ]
