@@ -16,7 +16,8 @@ connection.connect((err) => {
   console.log("Server started");
 
   const setupHRDatabase = `
-    CREATE DATABASE IF NOT EXISTS HR;
+    DROP DATABASE IF EXISTS HR;
+    CREATE DATABASE HR;
     USE HR;
     ${hrDump}
   `;
