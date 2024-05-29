@@ -110,7 +110,7 @@ fs.readFile("new_world.sql", "utf8", (err, data) => {
                             }
 
                             console.log(
-                              "Countries with city population more than 5000000:",
+                              "Cities with population more than 5000000:",
                               results
                             );
 
