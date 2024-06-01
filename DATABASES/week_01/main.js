@@ -6,8 +6,8 @@ const newWorldDump = fs.readFileSync("new_world.sql", "utf8");
 
 const connection = mysql.createConnection({
   host: "localhost",
-  user: "",
-  password: "",
+  user: "milica",
+  password: "1234567",
   multipleStatements: true,
 });
 
