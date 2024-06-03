@@ -58,7 +58,7 @@ rl.question("What's your favourite country? ", (answer_1) => {
                 console.log(`Loading...`);
 
                 connection.execute(
-                  "SELECT COUNT(city.name) as cityCount FROM city INNER JOIN countrylanguage as cl ON city.countrycode = cl.countrycode WHERE cl.language = ?",
+                  "SELECT COUNT(DISTINCT city.name) as cityCount FROM city INNER JOIN countrylanguage as cl ON city.countrycode = cl.countrycode WHERE cl.language = ?",
                   [answer_3],
                   function (err, results) {
                     if (err) {
@@ -77,8 +77,8 @@ rl.question("What's your favourite country? ", (answer_1) => {
                         console.log(`Loading...`);
 
                         connection.execute(
-                          "SELECT country.Name FROM country INNER JOIN countrylanguage ON countrylanguage.CountryCode = country.Code WHERE countrylanguage.Language IN (SELECT cl.Language FROM countrylanguage cl INNER JOIN country c ON cl.CountryCode = c.Code WHERE c.Name = ? AND cl.IsOfficial = 'T') AND countrylanguage.IsOfficial = 'T' AND country.Name != ?",
-                          [answer_4, answer_4],
+                          `SELECT c.Name FROM country c INNER JOIN countrylanguage cl ON c.Code = cl.CountryCode WHERE cl.Language IN (SELECT cl2.Language FROM countrylanguage cl2 INNER JOIN country c2 ON cl2.CountryCode = c2.Code  WHERE c2.Name = ? AND cl2.IsOfficial = 'T') AND cl.IsOfficial = 'T' AND c.Continent IN (SELECT c3.Continent FROM country c3 WHERE c3.Name = ?) AND c.Name != ?;`,
+                          [answer_4, answer_4, answer_4],
                           function (err, results) {
                             if (err) {
                               console.error(err);
@@ -94,28 +94,8 @@ rl.question("What's your favourite country? ", (answer_1) => {
                                 `No countries found with the same official language`
                               );
                             }
-                            connection.execute(
-                              "SELECT c.Name FROM country AS c WHERE c.Continent IN (SELECT country.Continent FROM country WHERE country.Name = ?) AND c.Name != ?",
-                              [answer_4, answer_4],
-                              function (err, results) {
-                                if (err) {
-                                  console.error(err);
-                                } else if (results.length > 0) {
-                                  const continentCountries = results
-                                    .map((country) => country.Name)
-                                    .join(", ");
-                                  console.log(
-                                    `Countries in the same continent as ${answer_4}: ${continentCountries}`
-                                  );
-                                } else {
-                                  console.log(
-                                    `No countries found in the same continent as ${answer_4}`
-                                  );
-                                }
-                                connection.end();
-                                rl.close();
-                              }
-                            );
+                            connection.end();
+                            rl.close();
                           }
                         );
                       }
