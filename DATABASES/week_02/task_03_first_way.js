@@ -51,7 +51,7 @@ const insertLanguage = (
   );
 };
 
-insertLanguage("AFG", "Language14", "F", 10.0, (err, message) => {
+insertLanguage("AFG", "Language15", "F", 10.0, (err, message) => {
   if (err) {
     console.error("Error:", err);
   } else {
