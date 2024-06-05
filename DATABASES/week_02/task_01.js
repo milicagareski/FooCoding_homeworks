@@ -3,8 +3,8 @@ const readline = require("readline");
 
 const connection = mysql.createConnection({
   host: "localhost",
-  user: "milica",
-  password: "1234567",
+  user: "",
+  password: "",
   database: "new_world",
 });
 

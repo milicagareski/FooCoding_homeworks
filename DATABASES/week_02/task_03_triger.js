@@ -2,8 +2,8 @@ const mysql = require("mysql2");
 
 const connection = mysql.createConnection({
   host: "localhost",
-  user: "milica",
-  password: "1234567",
+  user: "",
+  password: "",
   database: "new_world",
 });
 
@@ -26,7 +26,7 @@ function insertLanguage(
       console.log("Data inserted");
 
       connection.query(
-        `SELECT message FROM notifications WHERE country_code = ?`,
+        `SELECT message FROM notifications WHERE country_code = ?  ORDER BY created_at DESC LIMIT 1`,
         [countryCode],
         (err, results) => {
           if (err) {
@@ -34,7 +34,7 @@ function insertLanguage(
             return;
           }
           if (results.length > 0) {
-            callback(null, "THE COUNTRY HAS MORE THAN 10 LANGUAGES");
+            callback(null, results[0].message);
           } else {
             callback(null, "The country has less than 10 languages");
           }
@@ -51,7 +51,15 @@ connection.connect(function (err) {
   }
   console.log(`Connected to database`);
 
-  insertLanguage("UZB", "SWEDISH", "T", 5.8, (error, message) => {
+  insertLanguage("ANT", "Lang_01", "T", 5.8, (error, message) => {
+    if (error) {
+      console.error(error);
+    } else {
+      console.log(message);
+    }
+    connection.end();
+  });
+  insertLanguage("BOL", "Lang_01", "T", 5.8, (error, message) => {
     if (error) {
       console.error(error);
     } else {

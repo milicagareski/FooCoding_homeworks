@@ -2,8 +2,8 @@ const mysql = require("mysql2");
 
 const connection = mysql.createConnection({
   host: "localhost",
-  user: "milica",
-  password: "1234567",
+  user: "",
+  password: "",
   database: "new_world",
 });
 
@@ -51,7 +51,17 @@ const insertLanguage = (
   );
 };
 
-insertLanguage("AFG", "Language15", "F", 10.0, (err, message) => {
+insertLanguage("AFG", "Lang05", "F", 10.0, (err, message) => {
+  if (err) {
+    console.error("Error:", err);
+  } else {
+    console.log(message);
+  }
+
+  connection.end();
+});
+
+insertLanguage("GLP", "Lang02", "F", 10.0, (err, message) => {
   if (err) {
     console.error("Error:", err);
   } else {
