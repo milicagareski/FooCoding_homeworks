@@ -19,10 +19,9 @@
 -- Table structure for table `EMPLOYEE`
 --
 
-DROP TABLE IF EXISTS `EMPLOYEE`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `EMPLOYEE` (
+CREATE TABLE IF NOT EXISTS `EMPLOYEE` (
   `EMPLOYEE_ID` int NOT NULL AUTO_INCREMENT,
   `FIRST_NAME` varchar(100) DEFAULT NULL,
   `LAST_NAME` varchar(100) DEFAULT NULL,
@@ -53,10 +52,9 @@ UNLOCK TABLES;
 -- Table structure for table `LOCATIONS`
 --
 
-DROP TABLE IF EXISTS `LOCATIONS`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `LOCATIONS` (
+CREATE TABLE IF NOT EXISTS `LOCATIONS` (
   `LOCATION_ID` int NOT NULL AUTO_INCREMENT,
   `STATE` varchar(100) DEFAULT NULL,
   `CITY` varchar(100) DEFAULT NULL,
