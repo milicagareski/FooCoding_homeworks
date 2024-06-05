@@ -2,8 +2,8 @@ const mysql = require("mysql2");
 
 const connection = mysql.createConnection({
   host: "localhost",
-  user: "",
-  password: "",
+  user: "milica",
+  password: "1234567",
   database: "new_world",
 });
 
@@ -51,7 +51,7 @@ connection.connect(function (err) {
   }
   console.log(`Connected to database`);
 
-  insertLanguage("ANT", "Lang_01", "T", 5.8, (error, message) => {
+  insertLanguage("ANT", "Lang_10", "T", 5.8, (error, message) => {
     if (error) {
       console.error(error);
     } else {
@@ -59,7 +59,7 @@ connection.connect(function (err) {
     }
     connection.end();
   });
-  insertLanguage("BOL", "Lang_01", "T", 5.8, (error, message) => {
+  insertLanguage("BOL", "Lang_10", "T", 5.8, (error, message) => {
     if (error) {
       console.error(error);
     } else {

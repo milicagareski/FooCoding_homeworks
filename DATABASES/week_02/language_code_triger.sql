@@ -26,3 +26,19 @@ BEGIN
 END //
 
 DELIMITER ;
+
+-- tests
+
+
+-- INSERT INTO countrylanguage (CountryCode, `Language`, IsOfficial, Percentage) VALUES ('GLP', 'Espreanto', 'T', 5.8);
+-- INSERT INTO countrylanguagenotifications (CountryCode, `Language`, IsOfficial, Percentage) VALUES ('GLP', 'Swiss', 'F', 45.0);
+-- INSERT INTO countrylanguage (CountryCode, `Language`, IsOfficial, Percentage) VALUES ('GLP', 'French', 'F', 22.3);
+-- INSERT INTO countrylanguage (CountryCode, `Language`, IsOfficial, Percentage) VALUES ('GLP', 'Greek', 'T', 67.9);
+-- INSERT INTO countrylanguage (CountryCode, `Language`, IsOfficial, Percentage) VALUES ('GLP', 'Macedonian', 'F', 93.1);
+-- INSERT INTO countrylanguage (CountryCode, `Language`, IsOfficial, Percentage) VALUES ('GLP', 'Russian', 'T', 17.4);
+-- INSERT INTO countrylanguage (CountryCode, `Language`, IsOfficial, Percentage) VALUES ('GLP', 'Chinese', 'T', 36.5);
+-- INSERT INTO countrylanguage (CountryCode, `Language`, IsOfficial, Percentage) VALUES ('GLP', 'Polish', 'T', 42.8);
+-- INSERT INTO countrylanguage (CountryCode, `Language`, IsOfficial, Percentage) VALUES ('GLP', 'Belgian', 'F', 21.7);
+-- INSERT INTO countrylanguage (CountryCode, `Language`, IsOfficial, Percentage) VALUES ('GLP', 'Spanish', 'T', 84.4);
+
+-- SELECT * FROM notifications;
