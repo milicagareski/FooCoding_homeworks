@@ -4,7 +4,7 @@ const connection = mysql.createConnection({
   host: "localhost",
   user: "",
   password: "",
-  database: "new_world",
+  database: "new_world_02",
 });
 
 function insertLanguage(
@@ -51,7 +51,7 @@ connection.connect(function (err) {
   }
   console.log(`Connected to database`);
 
-  insertLanguage("ANT", "Lang_10", "T", 5.8, (error, message) => {
+  insertLanguage("ANT", "Lang_20", "T", 5.8, (error, message) => {
     if (error) {
       console.error(error);
     } else {
@@ -59,7 +59,7 @@ connection.connect(function (err) {
     }
     connection.end();
   });
-  insertLanguage("BOL", "Lang_10", "T", 5.8, (error, message) => {
+  insertLanguage("ETH", "Lang_20", "T", 5.8, (error, message) => {
     if (error) {
       console.error(error);
     } else {

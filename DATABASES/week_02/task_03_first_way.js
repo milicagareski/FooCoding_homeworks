@@ -51,7 +51,7 @@ const insertLanguage = (
   );
 };
 
-insertLanguage("AFG", "Lang05", "F", 10.0, (err, message) => {
+insertLanguage("AFG", "Lang100", "F", 10.0, (err, message) => {
   if (err) {
     console.error("Error:", err);
   } else {
@@ -61,7 +61,7 @@ insertLanguage("AFG", "Lang05", "F", 10.0, (err, message) => {
   connection.end();
 });
 
-insertLanguage("GLP", "Lang02", "F", 10.0, (err, message) => {
+insertLanguage("GIB", "Lang100", "F", 10.0, (err, message) => {
   if (err) {
     console.error("Error:", err);
   } else {

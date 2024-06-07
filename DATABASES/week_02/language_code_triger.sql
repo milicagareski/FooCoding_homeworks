@@ -1,4 +1,4 @@
-USE new_world;
+USE new_world_02;
 
 CREATE TABLE IF NOT EXISTS notifications(
 	ID INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
